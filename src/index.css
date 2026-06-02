@@ -1,0 +1,108 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap");
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --background: 45 20% 96%;
+    --foreground: 0 0% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 10%;
+    --secondary: 45 15% 92%;
+    --muted: 45 10% 90%;
+    --muted-foreground: 0 0% 45%;
+    --border: 0 0% 85%;
+    --radius: 0.75rem;
+    --tag-bg: 45 15% 92%;
+    --tag-foreground: 0 0% 35%;
+    --stripe-color: 0 0% 80%;
+    --font-urdu: "Noto Naskh Arabic", serif;
+  }
+
+  .dark {
+    --background: 0 0% 5%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 8%;
+    --card-foreground: 0 0% 98%;
+    --secondary: 0 0% 12%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 55%;
+    --border: 0 0% 18%;
+    --tag-bg: 0 0% 12%;
+    --tag-foreground: 0 0% 70%;
+    --stripe-color: 0 0% 18%;
+    --font-urdu: "Noto Naskh Arabic", serif;
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-in {
+    animation: fade-in 0.5s ease both;
+  }
+
+  .fade-in {
+    animation-name: fade-in;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: "Inter", sans-serif;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(156, 156, 156, 0.05) 1px, transparent 0);
+    background-size: 18px 18px;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Inter", sans-serif;
+  }
+
+  * {
+    border-color: hsl(var(--border));
+  }
+
+  .font-urdu {
+    font-family: var(--font-urdu);
+    font-feature-settings: "liga" 1, "calt" 1;
+    text-rendering: optimizeLegibility;
+  }
+}
+
+@layer utilities {
+  .dotted-border-left {
+    border-left: 1px dotted hsl(var(--border) / 0.9);
+  }
+
+  .dotted-border-right {
+    border-right: 1px dotted hsl(var(--border) / 0.9);
+  }
+
+  .striped-divider {
+    background-image: repeating-linear-gradient(
+      135deg,
+      transparent 0 6px,
+      hsl(var(--stripe-color) / 0.42) 6px 7px
+    );
+  }
+}

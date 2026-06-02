@@ -1,0 +1,11 @@
+import fs from "node:fs";
+const path = "src/data.js";
+let content = fs.readFileSync(path, "utf8");
+content = content.replace(`    icon: "doc",`, `    icon: "mail",`);
+content = content.replace(`export const skillGroups = [`, `export const resumeUrl = "https://example.com/resume.pdf";\n\nexport const skillGroups = [`);
+content = content.replace(/Remote\s.*Upwork & Direct Clients/, `Remote · Upwork & Direct Clients`);
+content = content.replace(/6th Semester\s.*Expected July 2027/, `6th Semester · Expected July 2027`);
+content = content.replace(`Itâ€™s one of the clearest signals of your end-to-end MERN ability.`, `It's one of the clearest signals of your end-to-end MERN ability.`);
+content = content.replace(`A RAG-powered assistant that lets users upload PDFs, retrieve grounded answers, and stream responses in real time. Strong proof of your AI + product engineering direction.`, `A RAG-powered assistant that lets users upload PDFs, retrieve grounded answers, and stream responses in real time. Strong proof of your AI + product engineering direction.`);
+content = content.replace(`A modern Next.js anonymous feedback product that shows you can build polished social-style UX with strong product thinking and a clean frontend stack.`, `A modern Next.js anonymous feedback product that shows you can build polished social-style UX with strong product thinking and a clean frontend stack.`);
+fs.writeFileSync(path, content);
