@@ -160,6 +160,8 @@ function App() {
   const [traitIndex, setTraitIndex] = useState(0);
   const [traitHovered, setTraitHovered] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [gitHubEvents, setGitHubEvents] = useState([]);
+  const [gitHubLoading, setGitHubLoading] = useState(true);
 
   useEffect(() => {
     const storedTheme = localStorage.getItem("theme");
@@ -198,6 +200,24 @@ function App() {
     handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const fetchGitHubActivity = async () => {
+      try {
+        setGitHubLoading(true);
+        const response = await fetch("https://api.github.com/users/iahmedd-k/events/public?per_page=6");
+        if (response.ok) {
+          const data = await response.json();
+          setGitHubEvents(data);
+        }
+      } catch (error) {
+        console.error("Failed to fetch GitHub activity:", error);
+      } finally {
+        setGitHubLoading(false);
+      }
+    };
+    fetchGitHubActivity();
   }, []);
 
   const activeSkills = useMemo(
@@ -582,18 +602,63 @@ function App() {
           <div className="mb-6 flex items-center justify-between">
             <h2 className="text-xl font-semibold text-foreground">GitHub Activity</h2>
           </div>
-          <div className="flex flex-col gap-4 md:flex-row">
-            <div className="flex min-h-[180px] flex-1 items-center justify-center overflow-hidden rounded-lg border border-border bg-card p-4">
-              <div className="flex flex-col items-center justify-center text-muted-foreground">
-                <IconLoader className="mb-4 h-8 w-8 animate-spin" />
-                <p className="text-sm">Syncing GitHub data...</p>
+          <div className="flex flex-col gap-4">
+            {gitHubLoading ? (
+              <div className="flex min-h-[180px] items-center justify-center overflow-hidden rounded-lg border border-border bg-card p-4">
+                <div className="flex flex-col items-center justify-center text-muted-foreground">
+                  <IconLoader className="mb-4 h-8 w-8 animate-spin" />
+                  <p className="text-sm">Syncing GitHub data...</p>
+                </div>
               </div>
-            </div>
+            ) : gitHubEvents.length > 0 ? (
+              <div className="space-y-2">
+                {gitHubEvents.map((event, idx) => {
+                  const repoName = event.repo?.name || "Unknown";
+                  const eventType = event.type;
+                  let actionText = "";
+                  
+                  if (eventType === "PushEvent") {
+                    const count = event.payload?.commits?.length || 1;
+                    actionText = `Pushed ${count} commit${count > 1 ? "s" : ""} to`;
+                  } else if (eventType === "PullRequestEvent") {
+                    const action = event.payload?.action || "updated";
+                    actionText = `${action.charAt(0).toUpperCase() + action.slice(1)} pull request in`;
+                  } else if (eventType === "CreateEvent") {
+                    actionText = `Created ${event.payload?.ref_type || "resource"} in`;
+                  } else if (eventType === "IssuesEvent") {
+                    actionText = `${event.payload?.action || "updated"} issue in`;
+                  } else {
+                    actionText = "Updated";
+                  }
+                  
+                  return (
+                    <a
+                      key={idx}
+                      href={`https://github.com/${repoName}`}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="flex items-center gap-3 rounded-lg border border-border bg-card p-3 transition-colors hover:bg-muted/40 hover:border-foreground/30"
+                    >
+                      <IconGithub className="h-4 w-4 flex-shrink-0 text-muted-foreground" />
+                      <div className="flex-1 text-sm">
+                        <span className="text-foreground">{actionText}</span>
+                        <span className="ml-1 font-mono text-xs text-muted-foreground">{repoName.split("/")[1]}</span>
+                      </div>
+                      <IconExternal className="h-3 w-3 flex-shrink-0 opacity-50" />
+                    </a>
+                  );
+                })}
+              </div>
+            ) : (
+              <div className="flex min-h-[120px] items-center justify-center rounded-lg border border-border bg-card p-4">
+                <p className="text-sm text-muted-foreground">No recent GitHub activity</p>
+              </div>
+            )}
           </div>
-          <div className="mt-4 flex flex-wrap justify-center gap-4">
+          <div className="mt-6 flex flex-wrap justify-center gap-4">
             {footerLinks.map((link) => (
               <a key={link.label} href={link.href} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full border border-transparent px-3 py-1.5 text-sm text-muted-foreground transition-colors hover:border-border hover:bg-muted/40 hover:text-foreground">
-                <IconGithub className="h-4 w-4" />
+                {link.label === "GitHub" ? <IconGithub className="h-4 w-4" /> : <IconLinkedIn className="h-4 w-4" />}
                 {link.label}
                 <IconExternal className="h-3 w-3 opacity-80" />
               </a>
