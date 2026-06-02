@@ -206,7 +206,7 @@ function App() {
     const fetchGitHubActivity = async () => {
       try {
         setGitHubLoading(true);
-        const response = await fetch("https://api.github.com/users/iahmedd-k/events/public?per_page=6");
+        const response = await fetch("https://api.github.com/users/iahmedd-k/events/public?per_page=300");
         if (response.ok) {
           const data = await response.json();
           setGitHubEvents(data);
@@ -278,6 +278,52 @@ function App() {
       window.setTimeout(() => setCopyState(false), 1800);
     } catch (error) {
       console.error("Failed to copy email", error);
+    }
+  };
+
+  const generateContributionGraph = () => {
+    // Calculate contributions per day from events
+    const contributionMap = {};
+    gitHubEvents.forEach((event) => {
+      const date = new Date(event.created_at);
+      const dateStr = date.toISOString().split("T")[0];
+      contributionMap[dateStr] = (contributionMap[dateStr] || 0) + 1;
+    });
+
+    // Generate last 52 weeks
+    const today = new Date();
+    const weeks = [];
+    
+    for (let i = 51; i >= 0; i--) {
+      const week = [];
+      for (let day = 0; day < 7; day++) {
+        const date = new Date(today);
+        date.setDate(date.getDate() - (i * 7 + (6 - day)));
+        const dateStr = date.toISOString().split("T")[0];
+        const count = contributionMap[dateStr] || 0;
+        week.push({ date, count, dateStr });
+      }
+      weeks.push(week);
+    }
+
+    return { weeks, contributionMap, today };
+  };
+
+  const getContributionLevel = (count) => {
+    if (count === 0) return 0;
+    if (count <= 2) return 1;
+    if (count <= 5) return 2;
+    if (count <= 10) return 3;
+    return 4;
+  };
+
+  const getContributionColor = (level, isDark) => {
+    if (isDark) {
+      const colors = ["bg-card", "bg-emerald-900", "bg-emerald-700", "bg-emerald-500", "bg-emerald-400"];
+      return colors[level];
+    } else {
+      const colors = ["bg-card", "bg-emerald-100", "bg-emerald-300", "bg-emerald-500", "bg-emerald-600"];
+      return colors[level];
     }
   };
 
@@ -602,59 +648,102 @@ function App() {
           <div className="mb-6 flex items-center justify-between">
             <h2 className="text-xl font-semibold text-foreground">GitHub Activity</h2>
           </div>
-          <div className="flex flex-col gap-4">
-            {gitHubLoading ? (
-              <div className="flex min-h-[180px] items-center justify-center overflow-hidden rounded-lg border border-border bg-card p-4">
-                <div className="flex flex-col items-center justify-center text-muted-foreground">
-                  <IconLoader className="mb-4 h-8 w-8 animate-spin" />
-                  <p className="text-sm">Syncing GitHub data...</p>
-                </div>
+          
+          {gitHubLoading ? (
+            <div className="flex min-h-[200px] items-center justify-center rounded-lg border border-border bg-card p-4">
+              <div className="flex flex-col items-center justify-center text-muted-foreground">
+                <IconLoader className="mb-4 h-8 w-8 animate-spin" />
+                <p className="text-sm">Loading contribution graph...</p>
               </div>
-            ) : gitHubEvents.length > 0 ? (
-              <div className="space-y-2">
-                {gitHubEvents.map((event, idx) => {
-                  const repoName = event.repo?.name || "Unknown";
-                  const eventType = event.type;
-                  let actionText = "";
-                  
-                  if (eventType === "PushEvent") {
-                    const count = event.payload?.commits?.length || 1;
-                    actionText = `Pushed ${count} commit${count > 1 ? "s" : ""} to`;
-                  } else if (eventType === "PullRequestEvent") {
-                    const action = event.payload?.action || "updated";
-                    actionText = `${action.charAt(0).toUpperCase() + action.slice(1)} pull request in`;
-                  } else if (eventType === "CreateEvent") {
-                    actionText = `Created ${event.payload?.ref_type || "resource"} in`;
-                  } else if (eventType === "IssuesEvent") {
-                    actionText = `${event.payload?.action || "updated"} issue in`;
-                  } else {
-                    actionText = "Updated";
-                  }
-                  
-                  return (
-                    <a
-                      key={idx}
-                      href={`https://github.com/${repoName}`}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="flex items-center gap-3 rounded-lg border border-border bg-card p-3 transition-colors hover:bg-muted/40 hover:border-foreground/30"
-                    >
-                      <IconGithub className="h-4 w-4 flex-shrink-0 text-muted-foreground" />
-                      <div className="flex-1 text-sm">
-                        <span className="text-foreground">{actionText}</span>
-                        <span className="ml-1 font-mono text-xs text-muted-foreground">{repoName.split("/")[1]}</span>
+            </div>
+          ) : (
+            <div className="space-y-6">
+              {(() => {
+                const { weeks } = generateContributionGraph();
+                const monthLabels = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+                
+                return (
+                  <div>
+                    {/* Month labels row */}
+                    <div className="mb-2 flex gap-1 pl-12">
+                      {[0, 4, 8, 12, 16, 20, 24, 28, 32, 36, 40, 44, 48].map((weekIdx) => {
+                        const week = weeks[weekIdx];
+                        if (!week || !week[0]) return null;
+                        const monthIdx = week[0].date.getMonth();
+                        return (
+                          <div key={weekIdx} className="w-3 text-xs text-muted-foreground" style={{ marginLeft: `${(weekIdx === 0 ? 0 : 0)}px` }}>
+                            {monthIdx === 0 || weekIdx === 0 ? monthLabels[monthIdx] : ""}
+                          </div>
+                        );
+                      })}
+                    </div>
+
+                    {/* Contribution grid */}
+                    <div className="overflow-x-auto rounded-lg border border-border bg-card p-4">
+                      <div className="flex gap-1">
+                        {/* Day labels column */}
+                        <div className="flex flex-col gap-1">
+                          {["Mon", "Wed", "Fri"].map((day) => (
+                            <div key={day} className="h-3 w-8 text-center text-xs text-muted-foreground/60">
+                              {day}
+                            </div>
+                          ))}
+                        </div>
+
+                        {/* Weeks grid */}
+                        <div className="flex gap-1">
+                          {weeks.map((week, weekIdx) => (
+                            <div key={weekIdx} className="flex flex-col gap-1">
+                              {week.map((day, dayIdx) => {
+                                const level = getContributionLevel(day.count);
+                                const color = getContributionColor(level, themeDark);
+                                return (
+                                  <div
+                                    key={`${weekIdx}-${dayIdx}`}
+                                    className={`h-3 w-3 rounded-sm border border-border/40 transition-all hover:scale-110 hover:shadow-md cursor-pointer ${color}`}
+                                    title={`${day.dateStr}: ${day.count} contribution${day.count !== 1 ? "s" : ""}`}
+                                  />
+                                );
+                              })}
+                            </div>
+                          ))}
+                        </div>
                       </div>
-                      <IconExternal className="h-3 w-3 flex-shrink-0 opacity-50" />
-                    </a>
-                  );
-                })}
-              </div>
-            ) : (
-              <div className="flex min-h-[120px] items-center justify-center rounded-lg border border-border bg-card p-4">
-                <p className="text-sm text-muted-foreground">No recent GitHub activity</p>
-              </div>
-            )}
-          </div>
+                    </div>
+
+                    {/* Legend */}
+                    <div className="mt-4 flex items-center justify-between text-xs text-muted-foreground">
+                      <span>Less</span>
+                      <div className="flex gap-1">
+                        {[0, 1, 2, 3, 4].map((level) => {
+                          const color = getContributionColor(level, themeDark);
+                          return (
+                            <div
+                              key={level}
+                              className={`h-3 w-3 rounded-sm border border-border/40 ${color}`}
+                            />
+                          );
+                        })}
+                      </div>
+                      <span>More</span>
+                    </div>
+
+                    {/* Total contributions */}
+                    <div className="mt-4 text-center text-sm text-muted-foreground">
+                      {Object.values(gitHubEvents.reduce((acc, event) => {
+                        const date = new Date(event.created_at);
+                        const year = date.getFullYear();
+                        acc[year] = (acc[year] || 0) + 1;
+                        return acc;
+                      }, {})).reduce((a, b) => a + b, 0)} contributions in {new Date().getFullYear()}
+                    </div>
+                  </div>
+                );
+              })()}
+            </div>
+          )}
+
+          {/* Footer links */}
           <div className="mt-6 flex flex-wrap justify-center gap-4">
             {footerLinks.map((link) => (
               <a key={link.label} href={link.href} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full border border-transparent px-3 py-1.5 text-sm text-muted-foreground transition-colors hover:border-border hover:bg-muted/40 hover:text-foreground">
