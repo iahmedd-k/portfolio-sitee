@@ -342,8 +342,8 @@ function App() {
           </div>
 
           <div className="flex items-center gap-6">
-            <div className="h-32 w-32 shrink-0 overflow-hidden rounded-full border-2 border-border transition-all duration-500 ease-out hover:scale-105 hover:border-foreground/50">
-              <img src={avatarImage} alt="Ahmed Khan" draggable="false" className="h-full w-full select-none object-cover" />
+            <div className="h-40 w-40 shrink-0 overflow-hidden rounded-full border-2 border-border bg-white transition-all duration-500 ease-out hover:scale-105 hover:border-foreground/50">
+              <img src={avatarImage} alt="Ahmed Khan" draggable="false" className="h-full w-full select-none object-contain" />
             </div>
             <div className="flex flex-col">
               <div className="mb-1 flex flex-col gap-2 sm:flex-row sm:items-center">
