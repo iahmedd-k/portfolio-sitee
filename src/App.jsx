@@ -6,7 +6,7 @@ import {
   heroLinks,
   navItems,
   projectItems,
-    skillGroups,
+  skillGroups,
 } from "./data";
 import avatarImage from "./assets/avatar-BVr0HBRe.jpeg";
 
@@ -20,7 +20,6 @@ function IconGithub(props) {
     </svg>
   );
 }
-
 function IconLinkedIn(props) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -30,28 +29,21 @@ function IconLinkedIn(props) {
     </svg>
   );
 }
-
 function IconX(props) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <path d="m4 4 16 16" />
-      <path d="M20 4 4 20" />
+      <path d="m4 4 16 16" /><path d="M20 4 4 20" />
     </svg>
   );
 }
-
 function IconDoc(props) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
       <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-      <path d="M14 2v6h6" />
-      <path d="M16 13H8" />
-      <path d="M16 17H8" />
-      <path d="M10 9H8" />
+      <path d="M14 2v6h6" /><path d="M16 13H8" /><path d="M16 17H8" /><path d="M10 9H8" />
     </svg>
   );
 }
-
 function IconMail(props) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -60,7 +52,6 @@ function IconMail(props) {
     </svg>
   );
 }
-
 function IconCopy(props) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -69,7 +60,6 @@ function IconCopy(props) {
     </svg>
   );
 }
-
 function IconCheck(props) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -77,17 +67,13 @@ function IconCheck(props) {
     </svg>
   );
 }
-
 function IconMenu(props) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <line x1="4" x2="20" y1="6" y2="6" />
-      <line x1="4" x2="20" y1="12" y2="12" />
-      <line x1="4" x2="20" y1="18" y2="18" />
+      <line x1="4" x2="20" y1="6" y2="6" /><line x1="4" x2="20" y1="12" y2="12" /><line x1="4" x2="20" y1="18" y2="18" />
     </svg>
   );
 }
-
 function IconMoon(props) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -95,7 +81,6 @@ function IconMoon(props) {
     </svg>
   );
 }
-
 function IconMapPin(props) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -104,17 +89,14 @@ function IconMapPin(props) {
     </svg>
   );
 }
-
 function IconExternal(props) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <path d="M15 3h6v6" />
-      <path d="M10 14 21 3" />
+      <path d="M15 3h6v6" /><path d="M10 14 21 3" />
       <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
     </svg>
   );
 }
-
 function IconChevronDown(props) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -122,7 +104,6 @@ function IconChevronDown(props) {
     </svg>
   );
 }
-
 function IconLoader(props) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -130,44 +111,196 @@ function IconLoader(props) {
     </svg>
   );
 }
-
 function SocialIcon({ type, className }) {
   const base = { className };
-  if (type === "github") return <IconGithub {...base} />;
+  if (type === "github")   return <IconGithub {...base} />;
   if (type === "linkedin") return <IconLinkedIn {...base} />;
-  if (type === "x") return <IconX {...base} />;
-  if (type === "doc") return <IconDoc {...base} />;
-  if (type === "mail") return <IconMail {...base} />;
+  if (type === "x")        return <IconX {...base} />;
+  if (type === "doc")      return <IconDoc {...base} />;
+  if (type === "mail")     return <IconMail {...base} />;
   return null;
 }
-
 function SectionDivider() {
   return <div className="my-10 h-3 w-full striped-divider opacity-50" />;
 }
-
 function Badge({ children }) {
   return <span className="inline-flex items-center rounded-md bg-tag-bg px-2.5 py-0.5 text-xs font-medium text-tag-foreground">{children}</span>;
 }
 
+// ─── GitHub Activity ──────────────────────────────────────────────────────────
+
+const MONTH_NAMES = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+
+// Gray ramp matching GitHub's own contribution graph (light mode)
+// dark near-black = most contributions, light gray = empty
+const LIGHT_COLORS = ["#ebedf0","#c6cbd1","#959da5","#6a737d","#24292e"];
+const DARK_COLORS  = ["#161b22","#0d4429","#006d32","#26a641","#39d353"]; // keep dark as green-ish (GitHub dark style) or use grays:
+// Actually match image 1 which shows grays in both modes:
+const DARK_GRAY    = ["#21262d","#3d444d","#545d68","#768390","#cdd9e5"];
+
+function getLevel(count) {
+  if (!count || count === 0) return 0;
+  if (count <= 2)  return 1;
+  if (count <= 5)  return 2;
+  if (count <= 10) return 3;
+  return 4;
+}
+
+/**
+ * Build a local-timezone date string YYYY-MM-DD without UTC conversion bugs.
+ * Using toISOString() shifts to UTC which causes off-by-one in non-UTC timezones.
+ */
+function localDateStr(d) {
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, "0");
+  const day = String(d.getDate()).padStart(2, "0");
+  return `${y}-${m}-${day}`;
+}
+
+/**
+ * Build weeks array for a given year.
+ * Each cell: { dateStr, count, inYear }
+ * Starts on the Sunday on or before Jan 1, ends after Dec 31.
+ * Uses LOCAL date arithmetic (no UTC) to avoid timezone bugs.
+ */
+function buildWeeks(year, contributionMap) {
+  const weeks = [];
+  // Start: Jan 1 of year, rewound to Sunday
+  const cur = new Date(year, 0, 1, 12, 0, 0); // noon to avoid DST edge cases
+  cur.setDate(cur.getDate() - cur.getDay());
+
+  // End: Dec 31 of year
+  const yearEnd = new Date(year, 11, 31, 12, 0, 0);
+
+  while (cur <= yearEnd) {
+    const week = [];
+    for (let i = 0; i < 7; i++) {
+      const dateStr = localDateStr(cur);
+      const inYear  = cur.getFullYear() === year;
+      week.push({ dateStr, count: inYear ? (contributionMap[dateStr] || 0) : null, inYear });
+      cur.setDate(cur.getDate() + 1);
+    }
+    weeks.push(week);
+  }
+  return weeks;
+}
+
+/**
+ * Return week index where each month FIRST appears — only for the selected year.
+ * This prevents the "Dedan" bug where Dec (from padding) overlaps Jan label.
+ */
+function getMonthPositions(weeks, year) {
+  const seen = new Set();
+  const positions = [];
+  weeks.forEach((week, wi) => {
+    // Only look at days that are actually in the selected year
+    const firstInYear = week.find((d) => d.inYear);
+    if (!firstInYear) return;
+    // Parse date using local arithmetic, NOT new Date(dateStr) which is UTC
+    const parts = firstInYear.dateStr.split("-");
+    const month = parseInt(parts[1], 10) - 1; // 0-based month
+    const dayYear = parseInt(parts[0], 10);
+    if (dayYear !== year) return; // skip padding from adjacent years
+    if (!seen.has(month)) {
+      seen.add(month);
+      positions.push({ month, weekIndex: wi });
+    }
+  });
+  return positions;
+}
+
+function ContributionGraph({ weeks, year, themeDark }) {
+  // cell=10px gap=3px step=13px — sized to fit ~53 weeks inside the card
+  const CELL = 10;
+  const GAP  = 3;
+  const STEP = CELL + GAP;
+
+  const monthPositions = getMonthPositions(weeks, year);
+  const colors = themeDark ? DARK_GRAY : LIGHT_COLORS;
+
+  return (
+    <div style={{ width: "100%", minWidth: 0 }}>
+      {/* Month labels — absolutely positioned, only for the selected year */}
+      <div style={{ position: "relative", height: 18, marginBottom: 4, overflow: "hidden" }}>
+        {monthPositions.map(({ month, weekIndex }) => (
+          <span
+            key={month}
+            style={{
+              position: "absolute",
+              left: weekIndex * STEP,
+              fontSize: 11,
+              color: "var(--color-muted-foreground, #888)",
+              whiteSpace: "nowrap",
+              lineHeight: "18px",
+              userSelect: "none",
+            }}
+          >
+            {MONTH_NAMES[month]}
+          </span>
+        ))}
+      </div>
+
+      {/* Week columns — no overflow, scales to container */}
+      <div style={{ display: "flex", gap: GAP, flexWrap: "nowrap" }}>
+        {weeks.map((week, wi) => (
+          <div key={wi} style={{ display: "flex", flexDirection: "column", gap: GAP, flexShrink: 0 }}>
+            {week.map((day, di) => {
+              if (!day.inYear) {
+                // Padding day — render invisible spacer so column heights stay consistent
+                return <div key={di} style={{ width: CELL, height: CELL, flexShrink: 0 }} />;
+              }
+              const level = getLevel(day.count);
+              const bg    = colors[level];
+              return (
+                <div
+                  key={di}
+                  title={`${day.dateStr}: ${day.count} contribution${day.count !== 1 ? "s" : ""}`}
+                  style={{
+                    width: CELL,
+                    height: CELL,
+                    borderRadius: 2,
+                    background: bg,
+                    border: "1px solid rgba(0,0,0,0.06)",
+                    flexShrink: 0,
+                    cursor: "default",
+                    transition: "transform 0.1s",
+                  }}
+                  onMouseEnter={(e) => { e.currentTarget.style.transform = "scale(1.3)"; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.transform = "scale(1)"; }}
+                />
+              );
+            })}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// ─── App ──────────────────────────────────────────────────────────────────────
+
 function App() {
-  const [themeDark, setThemeDark] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [skillTab, setSkillTab] = useState(skillGroups[0].id);
+  const [themeDark, setThemeDark]           = useState(false);
+  const [menuOpen, setMenuOpen]             = useState(false);
+  const [skillTab, setSkillTab]             = useState(skillGroups[0].id);
   const [openExperience, setOpenExperience] = useState("freelance");
-  const [openEducation, setOpenEducation] = useState("air");
-  const [copyState, setCopyState] = useState(false);
-  const [timeString, setTimeString] = useState("");
-  const [traitIndex, setTraitIndex] = useState(0);
-  const [traitHovered, setTraitHovered] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [gitHubEvents, setGitHubEvents] = useState([]);
-  const [gitHubLoading, setGitHubLoading] = useState(true);
+  const [openEducation, setOpenEducation]   = useState("air");
+  const [copyState, setCopyState]           = useState(false);
+  const [timeString, setTimeString]         = useState("");
+  const [traitIndex, setTraitIndex]         = useState(0);
+  const [traitHovered, setTraitHovered]     = useState(false);
+  const [isScrolled, setIsScrolled]         = useState(false);
+  const [selectedYear, setSelectedYear]     = useState(new Date().getFullYear());
+
+  // GitHub data — keyed by year so we don't re-fetch on year switch
+  const [ghData, setGhData]         = useState({}); // { [year]: { [dateStr]: count } }
+  const [ghLoading, setGhLoading]   = useState(true);
+  const [ghError, setGhError]       = useState(false);
 
   useEffect(() => {
-    const storedTheme = localStorage.getItem("theme");
-    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    const nextDark = storedTheme ? storedTheme === "dark" : prefersDark;
-    setThemeDark(nextDark);
+    const stored   = localStorage.getItem("theme");
+    const prefers  = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    setThemeDark(stored ? stored === "dark" : prefers);
   }, []);
 
   useEffect(() => {
@@ -176,99 +309,151 @@ function App() {
   }, [themeDark]);
 
   useEffect(() => {
-    const updateTime = () => {
+    const tick = () =>
       setTimeString(
         new Date().toLocaleTimeString("en-US", {
           timeZone: "Asia/Karachi",
-          hour: "2-digit",
-          minute: "2-digit",
-          second: "2-digit",
-          hour12: true,
-        }),
+          hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: true,
+        })
       );
-    };
-    updateTime();
-    const timer = window.setInterval(updateTime, 1000);
-    return () => window.clearInterval(timer);
+    tick();
+    const t = window.setInterval(tick, 1000);
+    return () => window.clearInterval(t);
   }, []);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 12);
-    };
-
-    handleScroll();
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    const onScroll = () => setIsScrolled(window.scrollY > 12);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  /**
+   * Fetch contribution data using GitHub GraphQL API.
+   * Requires VITE_GITHUB_TOKEN (fine-grained PAT, read-only public data).
+   *
+   * To create a token:
+   *   GitHub → Settings → Developer Settings → Personal Access Tokens → Fine-grained
+   *   Permissions: "Contributions" (read) — or just use a classic token with no scopes.
+   *   Add to your .env:  VITE_GITHUB_TOKEN=ghp_xxxxxxxxxxxx
+   *
+   * Without the token, falls back to the events API (last ~90 days only).
+   */
   useEffect(() => {
-    const fetchGitHubActivity = async () => {
+    (async () => {
       try {
-        setGitHubLoading(true);
-        const response = await fetch("https://api.github.com/users/iahmedd-k/events/public?per_page=300");
-        if (response.ok) {
-          const data = await response.json();
-          setGitHubEvents(data);
+        setGhLoading(true);
+        setGhError(false);
+
+        const token = import.meta.env.VITE_GITHUB_TOKEN;
+
+        if (token) {
+          // ── GraphQL: full contribution calendar, all years ──────────────
+          const yearQueries = [2024, 2025, 2026].map((y) => {
+            const from = `${y}-01-01T00:00:00Z`;
+            const to   = `${y}-12-31T23:59:59Z`;
+            return `
+              y${y}: user(login: "iahmedd-k") {
+                contributionsCollection(from: "${from}", to: "${to}") {
+                  contributionCalendar {
+                    weeks {
+                      contributionDays {
+                        date
+                        contributionCount
+                      }
+                    }
+                  }
+                }
+              }
+            `;
+          });
+
+          const res = await fetch("https://api.github.com/graphql", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `bearer ${token}`,
+            },
+            body: JSON.stringify({ query: `{ ${yearQueries.join("\n")} }` }),
+          });
+
+          if (res.ok) {
+            const json = await res.json();
+            const built = {};
+            [2024, 2025, 2026].forEach((y) => {
+              const map = {};
+              const weeks = json.data?.[`y${y}`]?.contributionsCollection?.contributionCalendar?.weeks ?? [];
+              weeks.forEach((w) => {
+                w.contributionDays.forEach((d) => {
+                  if (d.contributionCount > 0) map[d.date] = d.contributionCount;
+                });
+              });
+              built[y] = map;
+            });
+            setGhData(built);
+            return;
+          }
         }
-      } catch (error) {
-        console.error("Failed to fetch GitHub activity:", error);
+
+        // ── Fallback: public events API (last ~90 days) ──────────────────
+        let all = [];
+        for (let page = 1; page <= 10; page++) {
+          const res = await fetch(
+            `https://api.github.com/users/iahmedd-k/events/public?per_page=100&page=${page}`
+          );
+          if (!res.ok) break;
+          const data = await res.json();
+          if (!Array.isArray(data) || data.length === 0) break;
+          all = all.concat(data);
+          if (data.length < 100) break;
+        }
+
+        // Group events by year→date
+        const built = {};
+        all.forEach((event) => {
+          const d = new Date(event.created_at);
+          const y = d.getFullYear();
+          const dateStr = localDateStr(d);
+          if (!built[y]) built[y] = {};
+          built[y][dateStr] = (built[y][dateStr] || 0) + 1;
+        });
+        setGhData(built);
+
+      } catch (err) {
+        console.error("GitHub fetch failed:", err);
+        setGhError(true);
       } finally {
-        setGitHubLoading(false);
+        setGhLoading(false);
       }
-    };
-    fetchGitHubActivity();
+    })();
   }, []);
 
   const activeSkills = useMemo(
-    () => skillGroups.find((group) => group.id === skillTab) ?? skillGroups[0],
-    [skillTab],
+    () => skillGroups.find((g) => g.id === skillTab) ?? skillGroups[0],
+    [skillTab]
   );
 
-  const traitCards = [
-    {
-      urdu: "\u062c\u0646\u0648\u0646",
-      title: "Junoon",
-      subtitle: "OBSESSIVE PASSION",
-      description:
-        "A state of intense devotion where the boundary between the creator and the craft disappears. It is the fuel for greatness.",
-    },
-    {
-      urdu: "\u0639\u0632\u0645",
-      title: "Azm",
-      subtitle: "STEADFAST RESOLVE",
-      description:
-        "The quiet discipline to keep moving forward even when progress feels slow. It is the promise you keep to your future self.",
-    },
-    {
-      urdu: "\u0627\u0633\u062a\u0642\u0627\u0645\u062a",
-      title: "Istiqamat",
-      subtitle: "CONSISTENT DIRECTION",
-      description:
-        "The ability to stay aligned with your values, habits, and goals. It turns effort into momentum and momentum into trust.",
-    },
-    {
-      urdu: "\u062c\u0647\u062f",
-      title: "Juhd",
-      subtitle: "PURPOSEFUL EFFORT",
-      description:
-        "The willingness to do the hard work with sincerity. It reflects grit, patience, and the desire to leave things better than you found them.",
-    },
-  ];
+  // Derive weeks + total for the selected year
+  const { weeks, totalContributions } = useMemo(() => {
+    const map   = ghData[selectedYear] ?? {};
+    const w     = buildWeeks(selectedYear, map);
+    const total = Object.values(map).reduce((a, b) => a + b, 0);
+    return { weeks: w, totalContributions: total };
+  }, [ghData, selectedYear]);
 
+  const traitCards = [
+    { urdu: "\u062c\u0646\u0648\u0646", title: "Junoon",     subtitle: "OBSESSIVE PASSION",    description: "A state of intense devotion where the boundary between the creator and the craft disappears. It is the fuel for greatness." },
+    { urdu: "\u0639\u0632\u0645",       title: "Azm",        subtitle: "STEADFAST RESOLVE",     description: "The quiet discipline to keep moving forward even when progress feels slow. It is the promise you keep to your future self." },
+    { urdu: "\u0627\u0633\u062a\u0642\u0627\u0645\u062a", title: "Istiqamat", subtitle: "CONSISTENT DIRECTION", description: "The ability to stay aligned with your values, habits, and goals. It turns effort into momentum and momentum into trust." },
+    { urdu: "\u062c\u0647\u062f",       title: "Juhd",       subtitle: "PURPOSEFUL EFFORT",     description: "The willingness to do the hard work with sincerity. It reflects grit, patience, and the desire to leave things better than you found them." },
+  ];
   const activeTrait = traitCards[traitIndex % traitCards.length];
 
   const scrollToSection = (id) => {
     setMenuOpen(false);
-    if (id === "home") {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-      return;
-    }
-    const element = document.getElementById(id);
-    if (element) {
-      const top = element.getBoundingClientRect().top + window.scrollY - 80;
-      window.scrollTo({ top, behavior: "smooth" });
-    }
+    if (id === "home") { window.scrollTo({ top: 0, behavior: "smooth" }); return; }
+    const el = document.getElementById(id);
+    if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 80, behavior: "smooth" });
   };
 
   const handleCopyEmail = async () => {
@@ -276,64 +461,21 @@ function App() {
       await navigator.clipboard.writeText(email);
       setCopyState(true);
       window.setTimeout(() => setCopyState(false), 1800);
-    } catch (error) {
-      console.error("Failed to copy email", error);
-    }
+    } catch (e) { console.error(e); }
   };
 
-  const generateContributionGraph = () => {
-    // Calculate contributions per day from events
-    const contributionMap = {};
-    gitHubEvents.forEach((event) => {
-      const date = new Date(event.created_at);
-      const dateStr = date.toISOString().split("T")[0];
-      contributionMap[dateStr] = (contributionMap[dateStr] || 0) + 1;
-    });
-
-    // Generate last 52 weeks
-    const today = new Date();
-    const weeks = [];
-    
-    for (let i = 51; i >= 0; i--) {
-      const week = [];
-      for (let day = 0; day < 7; day++) {
-        const date = new Date(today);
-        date.setDate(date.getDate() - (i * 7 + (6 - day)));
-        const dateStr = date.toISOString().split("T")[0];
-        const count = contributionMap[dateStr] || 0;
-        week.push({ date, count, dateStr });
-      }
-      weeks.push(week);
-    }
-
-    return { weeks, contributionMap, today };
-  };
-
-  const getContributionLevel = (count) => {
-    if (count === 0) return 0;
-    if (count <= 2) return 1;
-    if (count <= 5) return 2;
-    if (count <= 10) return 3;
-    return 4;
-  };
-
-  const getContributionColor = (level, isDark) => {
-    if (isDark) {
-      const colors = ["bg-card", "bg-emerald-900", "bg-emerald-700", "bg-emerald-500", "bg-emerald-400"];
-      return colors[level];
-    } else {
-      const colors = ["bg-card", "bg-emerald-100", "bg-emerald-300", "bg-emerald-500", "bg-emerald-600"];
-      return colors[level];
-    }
-  };
+  const availableYears = [2026, 2025, 2024];
+  const legendColors   = themeDark ? DARK_GRAY : LIGHT_COLORS;
 
   return (
     <div className="min-h-screen bg-background">
       <div className="mx-auto max-w-4xl px-4 dotted-border-left dotted-border-right sm:px-6 lg:px-8">
+
+        {/* ── Nav ─────────────────────────────────────────────────────────── */}
         <nav className={`sticky top-0 z-50 bg-background/90 backdrop-blur-md transition-all duration-200 ${isScrolled ? "border-b border-border" : "border-b border-transparent"}`}>
           <div className="mx-auto max-w-7xl px-4 sm:px-6">
             <div className="flex h-14 items-center justify-between">
-              <button className="p-2 text-muted-foreground transition-colors hover:text-foreground md:hidden" aria-label="Toggle menu" onClick={() => setMenuOpen((value) => !value)}>
+              <button className="p-2 text-muted-foreground transition-colors hover:text-foreground md:hidden" aria-label="Toggle menu" onClick={() => setMenuOpen((v) => !v)}>
                 <IconMenu className="h-5 w-5" />
               </button>
               <div className="hidden items-center gap-1 md:flex">
@@ -343,12 +485,12 @@ function App() {
                   </button>
                 ))}
               </div>
-              <button className="rounded-lg p-2 transition-all duration-200 hover:scale-110 hover:bg-muted" aria-label="Toggle theme" onClick={() => setThemeDark((value) => !value)}>
+              <button className="rounded-lg p-2 transition-all duration-200 hover:scale-110 hover:bg-muted" aria-label="Toggle theme" onClick={() => setThemeDark((v) => !v)}>
                 <IconMoon className="h-5 w-5 text-foreground" />
               </button>
             </div>
           </div>
-          {menuOpen ? (
+          {menuOpen && (
             <div className="absolute left-0 top-14 w-full border-b border-border bg-background/95 p-4 shadow-lg backdrop-blur-md animate-in slide-in-from-top-2 md:hidden">
               <div className="flex flex-col gap-2">
                 {navItems.map((item) => (
@@ -358,9 +500,10 @@ function App() {
                 ))}
               </div>
             </div>
-          ) : null}
+          )}
         </nav>
 
+        {/* ── Hero ────────────────────────────────────────────────────────── */}
         <section className="py-5 md:py-6">
           <div className="mb-4 text-center">
             <div
@@ -369,44 +512,23 @@ function App() {
               onMouseLeave={() => setTraitHovered(false)}
             >
               <div className="pointer-events-none absolute left-1/2 top-full h-10 w-[min(88vw,390px)] -translate-x-1/2" />
-
-              <div
-                lang="ur"
-                dir="rtl"
-                className="font-urdu select-none text-[58px] leading-none font-normal tracking-[-0.02em] text-[#7c7c7c] transition-all duration-300 group-hover:-translate-y-1 md:text-[72px]"
-                style={{ unicodeBidi: "plaintext" }}
-              >
+              <div lang="ur" dir="rtl" className="font-urdu select-none text-[58px] leading-none font-normal tracking-[-0.02em] text-[#7c7c7c] transition-all duration-300 group-hover:-translate-y-1 md:text-[72px]" style={{ unicodeBidi: "plaintext" }}>
                 {activeTrait.urdu}
               </div>
-
-              <div
-                className={`absolute left-1/2 top-full z-40 mt-2 w-[min(88vw,350px)] -translate-x-1/2 overflow-hidden rounded-[18px] border border-border bg-card text-left shadow-[0_16px_36px_rgba(0,0,0,0.11)] transition-all duration-300 ${
-                  traitHovered ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-2 opacity-0"
-                }`}
-              >
+              <div className={`absolute left-1/2 top-full z-40 mt-2 w-[min(88vw,350px)] -translate-x-1/2 overflow-hidden rounded-[18px] border border-border bg-card text-left shadow-[0_16px_36px_rgba(0,0,0,0.11)] transition-all duration-300 ${traitHovered ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-2 opacity-0"}`}>
                 <div className="px-5 pb-4 pt-4 text-center">
                   <div className="mb-1 text-[20px] font-semibold tracking-tight text-foreground">{activeTrait.title}</div>
-                  <div className="mb-3 text-[11px] font-semibold uppercase tracking-[0.3em] text-muted-foreground">
-                    {activeTrait.subtitle}
-                  </div>
-                  <p className="mx-auto max-w-xs text-[15px] leading-6 text-muted-foreground">
-                    {activeTrait.description}
-                  </p>
+                  <div className="mb-3 text-[11px] font-semibold uppercase tracking-[0.3em] text-muted-foreground">{activeTrait.subtitle}</div>
+                  <p className="mx-auto max-w-xs text-[15px] leading-6 text-muted-foreground">{activeTrait.description}</p>
                 </div>
                 <div className="border-t border-border bg-muted/30 px-5 py-2.5">
-                  <button
-                    type="button"
-                    onClick={() => setTraitIndex((value) => value + 1)}
-                    className="mx-auto flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.3em] text-muted-foreground transition-colors hover:text-foreground"
-                  >
-                    <IconLoader className="h-4 w-4" />
-                    Show another
+                  <button type="button" onClick={() => setTraitIndex((v) => v + 1)} className="mx-auto flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.3em] text-muted-foreground transition-colors hover:text-foreground">
+                    <IconLoader className="h-4 w-4" />Show another
                   </button>
                 </div>
               </div>
             </div>
           </div>
-
           <div className="flex items-center gap-6">
             <div className="h-40 w-40 shrink-0 overflow-hidden rounded-full border-2 border-border bg-white transition-all duration-500 ease-out hover:scale-105 hover:border-foreground/50">
               <img src={avatarImage} alt="Ahmed Khan" draggable="false" className="h-full w-full select-none object-contain" />
@@ -422,30 +544,24 @@ function App() {
               <p className="mb-4 text-muted-foreground">{"22 \u2022 Full Stack Software & Infrastructure Engineer \u2022 MLOps / LLMOps"}</p>
               <div className="flex items-center gap-2">
                 {heroLinks.map((link) => {
-                  const commonClasses = "group relative inline-flex h-9 w-9 items-center justify-center rounded-lg transition-colors duration-150 hover:bg-muted/40";
-                  const tooltip = link.action ? (
+                  const cls = "group relative inline-flex h-9 w-9 items-center justify-center rounded-lg transition-colors duration-150 hover:bg-muted/40";
+                  const tip = link.action ? (
                     <span className="pointer-events-none absolute left-1/2 top-full z-10 mt-2 -translate-x-1/2 whitespace-nowrap rounded-full border border-border bg-card px-3 py-1 text-[11px] font-medium tracking-[0.18em] text-foreground opacity-0 shadow-sm transition-opacity duration-200 group-hover:opacity-100">
                       {link.action === "copy" ? "CLICK TO COPY EMAIL" : "VIEW RESUME"}
                     </span>
                   ) : null;
-                  if (link.action === 'copy') {
-                    return (
-                      <button key={link.label} type="button" onClick={handleCopyEmail} className={commonClasses} aria-label={link.label}>
-                        <SocialIcon type={link.icon} className="h-5 w-5 text-foreground" />
-                        {tooltip}
-                      </button>
-                    );
-                  }
-                  if (link.action === 'resume') {
-                    return (
-                      <a key={link.label} href={link.href} target="_blank" rel="noreferrer" className={commonClasses} aria-label={link.label}>
-                        <SocialIcon type={link.icon} className="h-5 w-5 text-foreground" />
-                        {tooltip}
-                      </a>
-                    );
-                  }
+                  if (link.action === "copy") return (
+                    <button key={link.label} type="button" onClick={handleCopyEmail} className={cls} aria-label={link.label}>
+                      <SocialIcon type={link.icon} className="h-5 w-5 text-foreground" />{tip}
+                    </button>
+                  );
+                  if (link.action === "resume") return (
+                    <a key={link.label} href={link.href} target="_blank" rel="noreferrer" className={cls} aria-label={link.label}>
+                      <SocialIcon type={link.icon} className="h-5 w-5 text-foreground" />{tip}
+                    </a>
+                  );
                   return (
-                    <a key={link.label} href={link.href} target="_blank" rel="noreferrer" className={commonClasses} aria-label={link.label}>
+                    <a key={link.label} href={link.href} target="_blank" rel="noreferrer" className={cls} aria-label={link.label}>
                       <SocialIcon type={link.icon} className="h-5 w-5 text-foreground" />
                     </a>
                   );
@@ -455,35 +571,26 @@ function App() {
           </div>
         </section>
 
+        {/* ── About ───────────────────────────────────────────────────────── */}
         <div id="about">
           <section className="py-6">
             <h2 className="mb-6 text-xl font-semibold text-foreground">About</h2>
             <div className="max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
-              <p className="mb-4">
-                <span className="text-foreground">Backend &amp; Full-Stack Developer</span> at Air University Islamabad, focused on building scalable, secure, and high-performance products.
-              </p>
-              <p className="mb-4">
-                I've shipped production applications across ecommerce, AI, SaaS, and realtime systems - with hands-on work in <span className="text-foreground">Node.js, React, Next.js, MongoDB, Redis, Stripe, and OpenAI</span>.
-              </p>
+              <p className="mb-4"><span className="text-foreground">Backend &amp; Full-Stack Developer</span> at Air University Islamabad, focused on building scalable, secure, and high-performance products.</p>
+              <p className="mb-4">I've shipped production applications across ecommerce, AI, SaaS, and realtime systems - with hands-on work in <span className="text-foreground">Node.js, React, Next.js, MongoDB, Redis, Stripe, and OpenAI</span>.</p>
               <p>Outside the terminal, you'll usually find me improving systems, iterating on client work, or exploring product ideas that feel useful in the real world.</p>
             </div>
           </section>
         </div>
 
+        {/* ── Skills ──────────────────────────────────────────────────────── */}
         <div id="skills">
           <section className="py-8">
             <h2 className="mb-8 text-xl font-semibold text-foreground">Skills</h2>
             <div className="mb-10 flex flex-wrap gap-2">
               {skillGroups.map((group) => (
-                <button
-                  key={group.id}
-                  onClick={() => setSkillTab(group.id)}
-                  className={`rounded-lg border px-5 py-2 text-[11px] font-bold uppercase tracking-[0.2em] transition-all duration-200 ${
-                    skillTab === group.id
-                      ? "border-foreground bg-foreground text-background"
-                      : "border-border bg-transparent text-muted-foreground hover:border-foreground/20 hover:text-foreground"
-                  }`}
-                >
+                <button key={group.id} onClick={() => setSkillTab(group.id)}
+                  className={`rounded-lg border px-5 py-2 text-[11px] font-bold uppercase tracking-[0.2em] transition-all duration-200 ${skillTab === group.id ? "border-foreground bg-foreground text-background" : "border-border bg-transparent text-muted-foreground hover:border-foreground/20 hover:text-foreground"}`}>
                   {group.title}
                 </button>
               ))}
@@ -492,14 +599,7 @@ function App() {
               <div className="flex flex-wrap gap-3 animate-in fade-in duration-500">
                 {activeSkills.skills.map((skill) => (
                   <div key={skill.name} className="flex cursor-default items-center gap-3 rounded-full border border-border bg-muted px-5 py-2.5 transition-colors duration-150 hover:border-border/80 hover:bg-secondary">
-                    <img
-                      src={skill.icon}
-                      alt={skill.name}
-                      className={`h-5 w-5 object-contain transition-all ${skill.invertInDark ? "dark:invert dark:brightness-200" : ""}`}
-                      onError={(event) => {
-                        event.currentTarget.style.display = "none";
-                      }}
-                    />
+                    <img src={skill.icon} alt={skill.name} className={`h-5 w-5 object-contain transition-all ${skill.invertInDark ? "dark:invert dark:brightness-200" : ""}`} onError={(e) => { e.currentTarget.style.display = "none"; }} />
                     <span className="text-sm font-medium text-foreground/80">{skill.name}</span>
                   </div>
                 ))}
@@ -510,6 +610,7 @@ function App() {
 
         <SectionDivider />
 
+        {/* ── Experience ──────────────────────────────────────────────────── */}
         <div id="experience">
           <section className="py-8">
             <h2 className="mb-6 text-xl font-semibold text-foreground">Work Experience</h2>
@@ -518,7 +619,7 @@ function App() {
                 const open = openExperience === item.id;
                 return (
                   <div key={item.id} className={`rounded-lg border border-border bg-card px-4 transition-all duration-200 ${open ? "shadow-[0_8px_24px_rgba(0,0,0,0.08)]" : "hover:shadow-[0_6px_16px_rgba(0,0,0,0.05)]"}`}>
-                    <button className="flex w-full items-center justify-between py-4 font-medium hover:no-underline" onClick={() => setOpenExperience((value) => (value === item.id ? item.id : item.id))}>
+                    <button className="flex w-full items-center justify-between py-4 font-medium hover:no-underline" onClick={() => setOpenExperience(item.id)}>
                       <div className="flex w-full items-center gap-3 text-left">
                         <div className="flex h-8 w-8 shrink-0 items-center justify-center overflow-hidden rounded-md bg-secondary">
                           <img src={item.image} alt={item.company} className="h-full w-full object-contain" />
@@ -533,22 +634,18 @@ function App() {
                       </div>
                       <IconChevronDown className={`h-4 w-4 shrink-0 transition-transform duration-200 ${open ? "rotate-180" : ""}`} />
                     </button>
-                    {open && item.points ? (
+                    {open && item.points && (
                       <div className="pb-4 pt-0 text-sm">
-                        <div className="mb-3 flex gap-2">
-                          <Badge>{item.location}</Badge>
-                          <Badge>{item.type}</Badge>
-                        </div>
+                        <div className="mb-3 flex gap-2"><Badge>{item.location}</Badge><Badge>{item.type}</Badge></div>
                         <ul className="space-y-2">
                           {item.points.map((point) => (
                             <li key={point} className="flex gap-2 text-sm text-muted-foreground">
-                              <span className="text-muted-foreground/50">•</span>
-                              <span>{point}</span>
+                              <span className="text-muted-foreground/50">•</span><span>{point}</span>
                             </li>
                           ))}
                         </ul>
                       </div>
-                    ) : null}
+                    )}
                   </div>
                 );
               })}
@@ -556,6 +653,7 @@ function App() {
           </section>
         </div>
 
+        {/* ── Education ───────────────────────────────────────────────────── */}
         <div id="education">
           <section className="py-8">
             <h2 className="mb-6 text-xl font-semibold text-foreground">Education</h2>
@@ -579,22 +677,18 @@ function App() {
                       </div>
                       <IconChevronDown className={`h-4 w-4 shrink-0 transition-transform duration-200 ${open ? "rotate-180" : ""}`} />
                     </button>
-                    {open ? (
+                    {open && (
                       <div className="pb-4 pt-0 text-sm">
-                        <div className="mb-3 flex gap-2">
-                          <Badge>{item.location}</Badge>
-                          <Badge>{item.meta}</Badge>
-                        </div>
+                        <div className="mb-3 flex gap-2"><Badge>{item.location}</Badge><Badge>{item.meta}</Badge></div>
                         <ul className="space-y-2">
                           {item.points.map((point) => (
                             <li key={point} className="flex gap-2 text-sm text-muted-foreground">
-                              <span className="text-muted-foreground/50">•</span>
-                              <span>{point}</span>
+                              <span className="text-muted-foreground/50">•</span><span>{point}</span>
                             </li>
                           ))}
                         </ul>
                       </div>
-                    ) : null}
+                    )}
                   </div>
                 );
               })}
@@ -604,6 +698,7 @@ function App() {
 
         <SectionDivider />
 
+        {/* ── Projects ────────────────────────────────────────────────────── */}
         <div id="projects">
           <section className="py-8">
             <h2 className="mb-6 text-xl font-semibold text-foreground">Projects</h2>
@@ -617,23 +712,13 @@ function App() {
                     <div className="mb-2 flex items-center justify-between">
                       <h3 className="font-semibold text-foreground">{project.title}</h3>
                       <div className="flex gap-2">
-                        {project.liveUrl ? (
-                          <a href={project.liveUrl} target="_blank" rel="noreferrer" className="rounded-md p-1.5 transition-colors duration-150 hover:bg-muted/50" title="Live">
-                            <IconExternal className="h-4 w-4 text-muted-foreground" />
-                          </a>
-                        ) : null}
-                        {project.githubUrl ? (
-                          <a href={project.githubUrl} target="_blank" rel="noreferrer" className="rounded-md p-1.5 transition-colors duration-150 hover:bg-muted/50" title="GitHub">
-                            <IconGithub className="h-4 w-4 text-muted-foreground" />
-                          </a>
-                        ) : null}
+                        {project.liveUrl && <a href={project.liveUrl} target="_blank" rel="noreferrer" className="rounded-md p-1.5 transition-colors duration-150 hover:bg-muted/50" title="Live"><IconExternal className="h-4 w-4 text-muted-foreground" /></a>}
+                        {project.githubUrl && <a href={project.githubUrl} target="_blank" rel="noreferrer" className="rounded-md p-1.5 transition-colors duration-150 hover:bg-muted/50" title="GitHub"><IconGithub className="h-4 w-4 text-muted-foreground" /></a>}
                       </div>
                     </div>
                     <p className="mb-3 text-sm text-muted-foreground">{project.description}</p>
                     <div className="flex flex-wrap gap-1.5">
-                      {project.tags.map((tag) => (
-                        <Badge key={tag}>{tag}</Badge>
-                      ))}
+                      {project.tags.map((tag) => <Badge key={tag}>{tag}</Badge>)}
                     </div>
                   </div>
                 </div>
@@ -644,117 +729,76 @@ function App() {
 
         <SectionDivider />
 
+        {/* ── GitHub Activity ─────────────────────────────────────────────── */}
         <section className="py-8">
-          <div className="mb-6 flex items-center justify-between">
-            <h2 className="text-xl font-semibold text-foreground">GitHub Activity</h2>
-          </div>
-          
-          {gitHubLoading ? (
-            <div className="flex min-h-[200px] items-center justify-center rounded-lg border border-border bg-card p-4">
-              <div className="flex flex-col items-center justify-center text-muted-foreground">
-                <IconLoader className="mb-4 h-8 w-8 animate-spin" />
+          <h2 className="mb-6 text-xl font-semibold text-foreground">GitHub Activity</h2>
+
+          {ghLoading ? (
+            <div className="flex min-h-[220px] items-center justify-center rounded-2xl border border-border bg-card p-6">
+              <div className="flex flex-col items-center gap-3 text-muted-foreground">
+                <IconLoader className="h-7 w-7 animate-spin" />
                 <p className="text-sm">Loading contribution graph...</p>
               </div>
             </div>
           ) : (
-            <div className="space-y-6">
-              {(() => {
-                const { weeks } = generateContributionGraph();
-                const monthLabels = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-                
-                return (
-                  <div>
-                    {/* Month labels row */}
-                    <div className="mb-2 flex gap-1 pl-12">
-                      {[0, 4, 8, 12, 16, 20, 24, 28, 32, 36, 40, 44, 48].map((weekIdx) => {
-                        const week = weeks[weekIdx];
-                        if (!week || !week[0]) return null;
-                        const monthIdx = week[0].date.getMonth();
-                        return (
-                          <div key={weekIdx} className="w-3 text-xs text-muted-foreground" style={{ marginLeft: `${(weekIdx === 0 ? 0 : 0)}px` }}>
-                            {monthIdx === 0 || weekIdx === 0 ? monthLabels[monthIdx] : ""}
-                          </div>
-                        );
-                      })}
-                    </div>
+            <div className="space-y-4">
+              {/* Outer row: card (flex-1) + year buttons (outside card, right) */}
+              <div className="flex items-start gap-4">
 
-                    {/* Contribution grid */}
-                    <div className="overflow-x-auto rounded-lg border border-border bg-card p-4">
-                      <div className="flex gap-1">
-                        {/* Day labels column */}
-                        <div className="flex flex-col gap-1">
-                          {["Mon", "Wed", "Fri"].map((day) => (
-                            <div key={day} className="h-3 w-8 text-center text-xs text-muted-foreground/60">
-                              {day}
-                            </div>
-                          ))}
-                        </div>
+                {/* Graph card — takes all remaining width, no internal scroll */}
+                <div className="min-w-0 flex-1 rounded-2xl border border-border bg-card px-5 pb-4 pt-5">
+                  <ContributionGraph weeks={weeks} year={selectedYear} themeDark={themeDark} />
 
-                        {/* Weeks grid */}
-                        <div className="flex gap-1">
-                          {weeks.map((week, weekIdx) => (
-                            <div key={weekIdx} className="flex flex-col gap-1">
-                              {week.map((day, dayIdx) => {
-                                const level = getContributionLevel(day.count);
-                                const color = getContributionColor(level, themeDark);
-                                return (
-                                  <div
-                                    key={`${weekIdx}-${dayIdx}`}
-                                    className={`h-3 w-3 rounded-sm border border-border/40 transition-all hover:scale-110 hover:shadow-md cursor-pointer ${color}`}
-                                    title={`${day.dateStr}: ${day.count} contribution${day.count !== 1 ? "s" : ""}`}
-                                  />
-                                );
-                              })}
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Legend */}
-                    <div className="mt-4 flex items-center justify-between text-xs text-muted-foreground">
+                  {/* Footer: total count + legend */}
+                  <div className="mt-3 flex flex-wrap items-center justify-between gap-2">
+                    <span className="text-xs text-muted-foreground">
+                      {totalContributions} activities in {selectedYear}
+                      {!import.meta.env.VITE_GITHUB_TOKEN && (
+                        <span className="ml-2 opacity-60">(last ~90 days — add VITE_GITHUB_TOKEN for full history)</span>
+                      )}
+                    </span>
+                    <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
                       <span>Less</span>
-                      <div className="flex gap-1">
-                        {[0, 1, 2, 3, 4].map((level) => {
-                          const color = getContributionColor(level, themeDark);
-                          return (
-                            <div
-                              key={level}
-                              className={`h-3 w-3 rounded-sm border border-border/40 ${color}`}
-                            />
-                          );
-                        })}
-                      </div>
+                      {legendColors.map((color, i) => (
+                        <div key={i} style={{ width: 10, height: 10, borderRadius: 2, background: color, border: "1px solid rgba(0,0,0,0.08)" }} />
+                      ))}
                       <span>More</span>
                     </div>
-
-                    {/* Total contributions */}
-                    <div className="mt-4 text-center text-sm text-muted-foreground">
-                      {Object.values(gitHubEvents.reduce((acc, event) => {
-                        const date = new Date(event.created_at);
-                        const year = date.getFullYear();
-                        acc[year] = (acc[year] || 0) + 1;
-                        return acc;
-                      }, {})).reduce((a, b) => a + b, 0)} contributions in {new Date().getFullYear()}
-                    </div>
                   </div>
-                );
-              })()}
+                </div>
+
+                {/* Year buttons — outside the card, stacked on the right */}
+                <div className="flex shrink-0 flex-col gap-2 pt-1">
+                  {availableYears.map((year) => (
+                    <button
+                      key={year}
+                      onClick={() => setSelectedYear(year)}
+                      className={`rounded-full px-3 py-1.5 text-sm font-medium transition-all duration-150 ${
+                        selectedYear === year
+                          ? "bg-foreground text-background"
+                          : "border border-border text-foreground hover:bg-muted"
+                      }`}
+                    >
+                      {year}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Personal / Work links */}
+              <div className="flex justify-center gap-6 pt-1">
+                <a href="https://github.com/iahmedd-k" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground">
+                  <IconGithub className="h-4 w-4" />Personal<IconExternal className="h-3 w-3 opacity-60" />
+                </a>
+                <a href="https://github.com/iahmedd-k" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground">
+                  <IconGithub className="h-4 w-4" />Work<IconExternal className="h-3 w-3 opacity-60" />
+                </a>
+              </div>
             </div>
           )}
-
-          {/* Footer links */}
-          <div className="mt-6 flex flex-wrap justify-center gap-4">
-            {footerLinks.map((link) => (
-              <a key={link.label} href={link.href} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full border border-transparent px-3 py-1.5 text-sm text-muted-foreground transition-colors hover:border-border hover:bg-muted/40 hover:text-foreground">
-                {link.label === "GitHub" ? <IconGithub className="h-4 w-4" /> : <IconLinkedIn className="h-4 w-4" />}
-                {link.label}
-                <IconExternal className="h-3 w-3 opacity-80" />
-              </a>
-            ))}
-          </div>
         </section>
 
+        {/* ── Contact ─────────────────────────────────────────────────────── */}
         <section className="py-12 text-center" id="contact">
           <h2 className="mb-3 text-2xl font-semibold text-foreground">Let's work together</h2>
           <p className="mb-5 text-muted-foreground">Have a project in mind? Let's create something amazing.</p>
@@ -767,12 +811,11 @@ function App() {
           </div>
         </section>
 
+        {/* ── Footer ──────────────────────────────────────────────────────── */}
         <footer className="border-t border-border py-8">
           <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
             <div className="flex flex-col items-center gap-1 text-sm text-muted-foreground sm:items-start">
-              <p>
-                Built with <span className="font-medium text-foreground">React</span>, <span className="font-medium text-foreground">Shadcn</span> &amp; <span className="font-medium text-foreground">Tailwind</span>.
-              </p>
+              <p>Built with <span className="font-medium text-foreground">React</span>, <span className="font-medium text-foreground">Shadcn</span> &amp; <span className="font-medium text-foreground">Tailwind</span>.</p>
               <p>Islamabad, Pakistan • {timeString}</p>
             </div>
             <div className="flex flex-col items-center gap-1 sm:items-end">
@@ -781,6 +824,7 @@ function App() {
             </div>
           </div>
         </footer>
+
       </div>
     </div>
   );
