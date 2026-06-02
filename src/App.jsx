@@ -314,7 +314,7 @@ function App() {
               </div>
 
               <div
-                className={`absolute left-1/2 top-full z-40 mt-2 w-[min(88vw,350px)] -translate-x-1/2 overflow-hidden rounded-[18px] border border-[#d8d8d8] bg-white text-left shadow-[0_16px_36px_rgba(0,0,0,0.11)] transition-all duration-300 dark:bg-[hsl(var(--card))] ${
+                className={`absolute left-1/2 top-full z-40 mt-2 w-[min(88vw,350px)] -translate-x-1/2 overflow-hidden rounded-[18px] border border-border bg-card text-left shadow-[0_16px_36px_rgba(0,0,0,0.11)] transition-all duration-300 ${
                   traitHovered ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-2 opacity-0"
                 }`}
               >
@@ -358,7 +358,7 @@ function App() {
                 {heroLinks.map((link) => {
                   const commonClasses = "group relative inline-flex h-9 w-9 items-center justify-center rounded-lg transition-colors duration-150 hover:bg-muted/40";
                   const tooltip = link.action ? (
-                    <span className="pointer-events-none absolute left-1/2 top-full z-10 mt-2 -translate-x-1/2 whitespace-nowrap rounded-full border border-[#d9d9d7] bg-white px-3 py-1 text-[11px] font-medium tracking-[0.18em] text-foreground opacity-0 shadow-sm transition-opacity duration-200 group-hover:opacity-100">
+                    <span className="pointer-events-none absolute left-1/2 top-full z-10 mt-2 -translate-x-1/2 whitespace-nowrap rounded-full border border-border bg-card px-3 py-1 text-[11px] font-medium tracking-[0.18em] text-foreground opacity-0 shadow-sm transition-opacity duration-200 group-hover:opacity-100">
                       {link.action === "copy" ? "CLICK TO COPY EMAIL" : "VIEW RESUME"}
                     </span>
                   ) : null;
@@ -425,7 +425,7 @@ function App() {
             <div className="min-h-[150px]">
               <div className="flex flex-wrap gap-3 animate-in fade-in duration-500">
                 {activeSkills.skills.map((skill) => (
-                  <div key={skill.name} className="flex cursor-default items-center gap-3 rounded-full border border-[#e1e1dd] bg-[#fbfaf7] px-5 py-2.5 transition-colors duration-150 hover:border-[#d6d6d1] hover:bg-white">
+                  <div key={skill.name} className="flex cursor-default items-center gap-3 rounded-full border border-border bg-muted px-5 py-2.5 transition-colors duration-150 hover:border-border/80 hover:bg-secondary">
                     <img
                       src={skill.icon}
                       alt={skill.name}
@@ -451,10 +451,10 @@ function App() {
               {experienceItems.map((item) => {
                 const open = openExperience === item.id;
                 return (
-                  <div key={item.id} className={`rounded-lg border border-[#d9d9d7] bg-white px-4 transition-all duration-200 ${open ? "shadow-[0_8px_24px_rgba(0,0,0,0.08)]" : "hover:shadow-[0_6px_16px_rgba(0,0,0,0.05)]"}`}>
+                  <div key={item.id} className={`rounded-lg border border-border bg-card px-4 transition-all duration-200 ${open ? "shadow-[0_8px_24px_rgba(0,0,0,0.08)]" : "hover:shadow-[0_6px_16px_rgba(0,0,0,0.05)]"}`}>
                     <button className="flex w-full items-center justify-between py-4 font-medium hover:no-underline" onClick={() => setOpenExperience((value) => (value === item.id ? item.id : item.id))}>
                       <div className="flex w-full items-center gap-3 text-left">
-                        <div className="flex h-8 w-8 shrink-0 items-center justify-center overflow-hidden rounded-md bg-[#f4f4f2]">
+                        <div className="flex h-8 w-8 shrink-0 items-center justify-center overflow-hidden rounded-md bg-secondary">
                           <img src={item.image} alt={item.company} className="h-full w-full object-contain" />
                         </div>
                         <div className="min-w-0 flex-1">
@@ -497,10 +497,10 @@ function App() {
               {educationItems.map((item) => {
                 const open = openEducation === item.id;
                 return (
-                  <div key={item.id} className={`rounded-lg border border-[#d9d9d7] bg-white px-4 transition-all duration-200 ${open ? "shadow-[0_8px_24px_rgba(0,0,0,0.08)]" : "hover:shadow-[0_6px_16px_rgba(0,0,0,0.05)]"}`}>
+                  <div key={item.id} className={`rounded-lg border border-border bg-card px-4 transition-all duration-200 ${open ? "shadow-[0_8px_24px_rgba(0,0,0,0.08)]" : "hover:shadow-[0_6px_16px_rgba(0,0,0,0.05)]"}`}>
                     <button className="flex w-full items-center justify-between py-4 font-medium hover:no-underline" onClick={() => setOpenEducation(item.id)}>
                       <div className="flex w-full items-center gap-3 text-left">
-                        <div className="flex h-8 w-8 shrink-0 items-center justify-center overflow-hidden rounded-md bg-[#f4f4f2]">
+                        <div className="flex h-8 w-8 shrink-0 items-center justify-center overflow-hidden rounded-md bg-secondary">
                           <img src={item.image} alt={item.school} className="h-full w-full object-contain" />
                         </div>
                         <div className="min-w-0 flex-1">
@@ -543,8 +543,8 @@ function App() {
             <h2 className="mb-6 text-xl font-semibold text-foreground">Projects</h2>
             <div className="space-y-4">
               {projectItems.map((project) => (
-                <div key={project.id} className="group flex flex-col gap-4 rounded-lg border border-[#d9d9d7] bg-white p-4 transition-all duration-300 hover:shadow-[0_10px_26px_rgba(0,0,0,0.08)] sm:flex-row">
-                  <div className="flex h-32 w-full shrink-0 items-center justify-center overflow-hidden rounded-lg border border-[#e5e5e2] bg-[#f7f6f2] sm:w-48">
+                <div key={project.id} className="group flex flex-col gap-4 rounded-lg border border-border bg-card p-4 transition-all duration-300 hover:shadow-[0_10px_26px_rgba(0,0,0,0.08)] sm:flex-row">
+                  <div className="flex h-32 w-full shrink-0 items-center justify-center overflow-hidden rounded-lg border border-border bg-secondary sm:w-48">
                     <img src={project.image} alt={project.title} className="h-full w-full object-contain p-2 drop-shadow-sm transition-transform duration-300 group-hover:scale-105" />
                   </div>
                   <div className="flex-1">
@@ -583,7 +583,7 @@ function App() {
             <h2 className="text-xl font-semibold text-foreground">GitHub Activity</h2>
           </div>
           <div className="flex flex-col gap-4 md:flex-row">
-            <div className="flex min-h-[180px] flex-1 items-center justify-center overflow-hidden rounded-lg border border-[#d9d9d7] bg-white p-4">
+            <div className="flex min-h-[180px] flex-1 items-center justify-center overflow-hidden rounded-lg border border-border bg-card p-4">
               <div className="flex flex-col items-center justify-center text-muted-foreground">
                 <IconLoader className="mb-4 h-8 w-8 animate-spin" />
                 <p className="text-sm">Syncing GitHub data...</p>
@@ -604,7 +604,7 @@ function App() {
         <section className="py-12 text-center" id="contact">
           <h2 className="mb-3 text-2xl font-semibold text-foreground">Let's work together</h2>
           <p className="mb-5 text-muted-foreground">Have a project in mind? Let's create something amazing.</p>
-          <div className="inline-flex items-center gap-3 rounded-full border border-border bg-white px-4 py-2 transition-colors hover:border-foreground/30">
+          <div className="inline-flex items-center gap-3 rounded-full border border-border bg-card px-4 py-2 transition-colors hover:border-foreground/30">
             <IconMail className="h-4 w-4 text-muted-foreground" />
             <span className="select-text text-sm font-medium text-foreground">{email}</span>
             <button className="ml-2 rounded-md p-1.5 transition-colors active:scale-90 hover:bg-muted/50" title="Copy email" onClick={handleCopyEmail}>
