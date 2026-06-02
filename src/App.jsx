@@ -289,6 +289,7 @@ function App() {
   const [timeString, setTimeString]         = useState("");
   const [traitIndex, setTraitIndex]         = useState(0);
   const [traitHovered, setTraitHovered]     = useState(false);
+  const [traitHasBeenViewed, setTraitHasBeenViewed] = useState(false);
   const [isScrolled, setIsScrolled]         = useState(false);
   const [selectedYear, setSelectedYear]     = useState(new Date().getFullYear());
 
@@ -508,10 +509,19 @@ function App() {
           <div className="mb-4 text-center">
             <div
               className="group relative inline-flex min-h-[110px] flex-col items-center justify-center pb-[4.5rem] md:min-h-[125px] md:pb-20"
-              onMouseEnter={() => setTraitHovered(true)}
+              onMouseEnter={() => { setTraitHovered(true); setTraitHasBeenViewed(true); }}
               onMouseLeave={() => setTraitHovered(false)}
             >
               <div className="pointer-events-none absolute left-1/2 top-full h-10 w-[min(88vw,390px)] -translate-x-1/2" />
+              
+              {/* Hover for meaning label - fades on hover and stays hidden after first interaction */}
+              <div className={`mb-3 flex flex-col items-center gap-1.5 transition-opacity duration-300 ${traitHovered || traitHasBeenViewed ? "opacity-0 pointer-events-none" : "opacity-100"}`}>
+                <span className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground/60">Hover for meaning</span>
+                <svg className="h-4 w-4 text-muted-foreground/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                </svg>
+              </div>
+              
               <div lang="ur" dir="rtl" className="font-urdu select-none text-[58px] leading-none font-normal tracking-[-0.02em] text-[#7c7c7c] transition-all duration-300 group-hover:-translate-y-1 md:text-[72px]" style={{ unicodeBidi: "plaintext" }}>
                 {activeTrait.urdu}
               </div>
