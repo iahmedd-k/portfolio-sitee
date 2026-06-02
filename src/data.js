@@ -147,6 +147,7 @@ export const projectItems = [
     image: carpConnectImage,
     description:
       "A real-time carpooling platform with geospatial matching, ride-room updates, and Stripe Connect split-fare reconciliation built for live commuting flows.",
+    githubUrl: "https://github.com/iahmedd-k/CarpConnect",
     tags: ["Node.js", "Express", "MongoDB", "Redis", "Socket.io", "React"],
     mark: "CC",
     accent: "from-amber-950 via-orange-900 to-rose-900",
@@ -158,6 +159,7 @@ export const projectItems = [
     image: flowForgeImage,
     description:
       "A multi-tenant project management SaaS with strict workspace boundaries, RBAC across roles, and analytics powered by MongoDB aggregation pipelines.",
+    githubUrl: "https://github.com/iahmedd-k/FlowForge-Multi-Tenant-Project-Management-SaaS",
     tags: ["Node.js", "Express", "MongoDB", "React", "Stripe", "Zod"],
     mark: "FF",
     accent: "from-violet-950 via-fuchsia-900 to-pink-900",
@@ -169,6 +171,7 @@ export const projectItems = [
     image: finPilotImage,
     description:
       "A finance assistant that organizes transactions, forecasts cash flow, tracks goals, and uses RAG to ground AI answers in the user's own financial history.",
+    githubUrl: "https://github.com/iahmedd-k/FinPilot-AI-Driven-Personal-Finance-Assistant",
     tags: ["Node.js", "React", "OpenAI", "LangChain", "Pinecone", "Stripe"],
     mark: "FP",
     accent: "from-slate-950 via-stone-900 to-neutral-800",
