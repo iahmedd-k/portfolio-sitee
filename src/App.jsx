@@ -515,14 +515,14 @@ function App() {
               <div lang="ur" dir="rtl" className="font-urdu select-none text-[58px] leading-none font-normal tracking-[-0.02em] text-[#7c7c7c] transition-all duration-300 group-hover:-translate-y-1 md:text-[72px]" style={{ unicodeBidi: "plaintext" }}>
                 {activeTrait.urdu}
               </div>
-              <div className={`absolute left-1/2 top-full z-40 mt-2 w-[min(88vw,350px)] -translate-x-1/2 overflow-hidden rounded-[18px] border border-border bg-card text-left shadow-[0_16px_36px_rgba(0,0,0,0.11)] transition-all duration-300 ${traitHovered ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-2 opacity-0"}`}>
+              <div className={`absolute left-1/2 top-full z-50 mt-2 w-[min(88vw,350px)] -translate-x-1/2 overflow-hidden rounded-[18px] border border-border bg-card text-left shadow-[0_20px_48px_rgba(0,0,0,0.15)] backdrop-blur-md transition-all duration-300 ${traitHovered ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-2 opacity-0"}`} style={{ backdropFilter: "blur(12px)" }}>
                 <div className="px-5 pb-4 pt-4 text-center">
                   <div className="mb-1 text-[20px] font-semibold tracking-tight text-foreground">{activeTrait.title}</div>
                   <div className="mb-3 text-[11px] font-semibold uppercase tracking-[0.3em] text-foreground/70">{activeTrait.subtitle}</div>
                   <p className="mx-auto max-w-xs text-[15px] leading-6 text-foreground/80">{activeTrait.description}</p>
                 </div>
-                <div className="border-t border-border bg-muted/30 px-5 py-2.5">
-                  <button type="button" onClick={() => setTraitIndex((v) => v + 1)} className="mx-auto flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.3em] text-foreground/70 transition-colors hover:text-foreground">
+                <div className="border-t border-border bg-muted/50 px-5 py-2.5">
+                  <button type="button" onClick={() => setTraitIndex((v) => v + 1)} className="mx-auto flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.3em] text-foreground/80 transition-colors hover:text-foreground">
                     <IconLoader className="h-4 w-4" />Show another
                   </button>
                 </div>
