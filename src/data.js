@@ -24,7 +24,7 @@ export const heroLinks = [
   },
   {
     label: "Resume",
-    href: "https://example.com/resume.pdf",
+    href: "https://docs.google.com/document/d/10XZkQskMHTWFDlQc-A7tdBA3Xm2UcbLy/export?format=pdf",
     icon: "doc",
     action: "resume",
   },
@@ -36,7 +36,7 @@ export const heroLinks = [
   },
 ];
 
-export const resumeUrl = "https://example.com/resume.pdf";
+export const resumeUrl = "https://docs.google.com/document/d/10XZkQskMHTWFDlQc-A7tdBA3Xm2UcbLy/export?format=pdf";
 
 export const skillGroups = [
   {
@@ -96,11 +96,12 @@ export const experienceItems = [
   {
     id: "freelance",
     company: "Freelance Full-Stack Developer",
-    role: "Remote ? Upwork & Direct Clients",
+    role: "Remote",
     period: "2024 - Present",
     location: "Remote",
     type: "Client Work",
     initials: "FF",
+    image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/freelancer/freelancer-original.svg",
     accent: "from-slate-950 via-slate-800 to-zinc-700",
     points: [
       "Delivered 6 production applications across ecommerce, AI, SaaS, and landing-page use cases.",

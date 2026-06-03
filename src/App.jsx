@@ -539,20 +539,20 @@ function App() {
               </div>
             </div>
           </div>
-          <div className="flex items-center gap-6">
-            <div className="h-40 w-40 shrink-0 overflow-hidden rounded-full border-2 border-border bg-white transition-all duration-500 ease-out hover:scale-105 hover:border-foreground/50">
+          <div className="flex flex-col items-center gap-4 md:flex-row md:gap-6">
+            <div className="h-32 w-32 shrink-0 overflow-hidden rounded-full border-2 border-border bg-white transition-all duration-500 ease-out hover:scale-105 hover:border-foreground/50 md:h-40 md:w-40">
               <img src={avatarImage} alt="Ahmed Khan" draggable="false" className="h-full w-full select-none object-contain" />
             </div>
             <div className="flex flex-col">
-              <div className="mb-1 flex flex-col gap-2 sm:flex-row sm:items-center">
+              <div className="mb-1 flex flex-col items-center gap-2 sm:flex-row sm:items-center md:items-start">
                 <h2 className="text-2xl font-semibold text-foreground">Ahmed Khan</h2>
                 <div className="mt-1 flex items-center gap-1 text-muted-foreground/80 sm:mt-0 sm:ml-2">
                   <IconMapPin className="h-3.5 w-3.5" />
                   <span className="text-sm font-medium">Islamabad, Pakistan</span>
                 </div>
               </div>
-              <p className="mb-4 text-muted-foreground">{"22 \u2022 Full Stack Software & Infrastructure Engineer \u2022 MLOps / LLMOps"}</p>
-              <div className="flex items-center gap-2">
+              <p className="mb-4 text-center text-muted-foreground md:text-left">{"22 \u2022 Full Stack Software & Infrastructure Engineer \u2022 MLOps / LLMOps"}</p>
+              <div className="flex flex-wrap items-center justify-center gap-2 md:justify-start">
                 {heroLinks.map((link) => {
                   const cls = "group relative inline-flex h-9 w-9 items-center justify-center rounded-lg transition-colors duration-150 hover:bg-muted/40";
                   const tip = link.action ? (
@@ -629,17 +629,23 @@ function App() {
                 const open = openExperience === item.id;
                 return (
                   <div key={item.id} className={`rounded-lg border border-border bg-card px-4 transition-all duration-200 ${open ? "shadow-[0_8px_24px_rgba(0,0,0,0.08)]" : "hover:shadow-[0_6px_16px_rgba(0,0,0,0.05)]"}`}>
-                    <button className="flex w-full items-center justify-between py-4 font-medium hover:no-underline" onClick={() => setOpenExperience(item.id)}>
+                    <button className="flex w-full items-center justify-between py-4 font-medium hover:no-underline" onClick={() => setOpenExperience(openExperience === item.id ? null : item.id)}>
                       <div className="flex w-full items-center gap-3 text-left">
-                        <div className="flex h-8 w-8 shrink-0 items-center justify-center overflow-hidden rounded-md bg-secondary">
-                          <img src={item.image} alt={item.company} className="h-full w-full object-contain" />
+                        <div className="flex h-8 w-8 shrink-0 items-center justify-center overflow-hidden rounded-md bg-secondary text-sm font-semibold text-foreground">
+                          {item.image ? (
+                            <img src={item.image} alt={item.company} className="h-full w-full object-contain" />
+                          ) : (
+                            <div className="flex h-full w-full items-center justify-center">
+                              <span className="text-xs uppercase tracking-[0.22em]">.{item.initials || item.company.slice(0,2)}</span>
+                            </div>
+                          )}
                         </div>
                         <div className="min-w-0 flex-1">
-                          <div className="flex flex-wrap items-center gap-2">
-                            <span className="font-medium text-foreground">{item.company}</span>
-                            <span className="text-muted-foreground">{item.role}</span>
+                          <div className="flex flex-wrap items-center gap-1 sm:gap-2">
+                            <span className="font-medium text-foreground text-sm sm:text-base">{item.company}</span>
+                            <span className="text-muted-foreground text-xs sm:text-sm">{item.role}</span>
                           </div>
-                          <div className="mt-0.5 text-sm text-muted-foreground">{item.period}</div>
+                          <div className="mt-0.5 text-xs sm:text-sm text-muted-foreground">{item.period}</div>
                         </div>
                       </div>
                       <IconChevronDown className={`h-4 w-4 shrink-0 transition-transform duration-200 ${open ? "rotate-180" : ""}`} />
@@ -672,17 +678,17 @@ function App() {
                 const open = openEducation === item.id;
                 return (
                   <div key={item.id} className={`rounded-lg border border-border bg-card px-4 transition-all duration-200 ${open ? "shadow-[0_8px_24px_rgba(0,0,0,0.08)]" : "hover:shadow-[0_6px_16px_rgba(0,0,0,0.05)]"}`}>
-                    <button className="flex w-full items-center justify-between py-4 font-medium hover:no-underline" onClick={() => setOpenEducation(item.id)}>
+                    <button className="flex w-full items-center justify-between py-4 font-medium hover:no-underline" onClick={() => setOpenEducation(openEducation === item.id ? null : item.id)}>
                       <div className="flex w-full items-center gap-3 text-left">
                         <div className="flex h-8 w-8 shrink-0 items-center justify-center overflow-hidden rounded-md bg-secondary">
                           <img src={item.image} alt={item.school} className="h-full w-full object-contain" />
                         </div>
                         <div className="min-w-0 flex-1">
-                          <div className="flex flex-wrap items-center gap-2">
-                            <span className="font-medium text-foreground">{item.school}</span>
-                            <span className="text-muted-foreground">{item.degree}</span>
+                          <div className="flex flex-wrap items-center gap-1 sm:gap-2">
+                            <span className="font-medium text-foreground text-sm sm:text-base">{item.school}</span>
+                            <span className="text-muted-foreground text-xs sm:text-sm">{item.degree}</span>
                           </div>
-                          <div className="mt-0.5 text-sm text-muted-foreground">{item.period}</div>
+                          <div className="mt-0.5 text-xs sm:text-sm text-muted-foreground">{item.period}</div>
                         </div>
                       </div>
                       <IconChevronDown className={`h-4 w-4 shrink-0 transition-transform duration-200 ${open ? "rotate-180" : ""}`} />
@@ -785,8 +791,8 @@ function App() {
                       onClick={() => setSelectedYear(year)}
                       className={`rounded-full px-3 py-1.5 text-sm font-medium transition-all duration-150 ${
                         selectedYear === year
-                          ? "bg-foreground text-background"
-                          : "border border-border text-foreground hover:bg-muted"
+                          ? "border border-foreground bg-foreground text-background"
+                          : "bg-transparent text-foreground hover:bg-muted"
                       }`}
                     >
                       {year}
