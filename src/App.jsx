@@ -606,11 +606,11 @@ function App() {
               ))}
             </div>
             <div className="min-h-[150px]">
-              <div className="flex flex-wrap gap-3 animate-in fade-in duration-500">
+              <div className="flex flex-wrap gap-2 sm:gap-3 animate-in fade-in duration-500">
                 {activeSkills.skills.map((skill) => (
-                  <div key={skill.name} className="flex cursor-default items-center gap-3 rounded-full border border-border bg-muted px-5 py-2.5 transition-colors duration-150 hover:border-border/80 hover:bg-secondary">
-                    <img src={skill.icon} alt={skill.name} className={`h-5 w-5 object-contain transition-all ${skill.invertInDark ? "dark:invert dark:brightness-200" : ""}`} onError={(e) => { e.currentTarget.style.display = "none"; }} />
-                    <span className="text-sm font-medium text-foreground/80">{skill.name}</span>
+                  <div key={skill.name} className="flex cursor-default items-center gap-2 rounded-full border border-border bg-muted px-3 py-2 sm:px-5 sm:py-2.5 transition-colors duration-150 hover:border-border/80 hover:bg-secondary">
+                    <img src={skill.icon} alt={skill.name} className={`h-4 w-4 sm:h-5 sm:w-5 object-contain transition-all ${skill.invertInDark ? "dark:invert dark:brightness-200" : ""}`} onError={(e) => { e.currentTarget.style.display = "none"; }} />
+                    <span className="text-xs sm:text-sm font-medium text-foreground/80">{skill.name}</span>
                   </div>
                 ))}
               </div>
@@ -624,12 +624,12 @@ function App() {
         <div id="experience">
           <section className="py-8">
             <h2 className="mb-6 text-xl font-semibold text-foreground">Work Experience</h2>
-            <div className="space-y-2">
+            <div className="space-y-1.5 sm:space-y-2">
               {experienceItems.map((item) => {
                 const open = openExperience === item.id;
                 return (
-                  <div key={item.id} className={`rounded-lg border border-border bg-card px-4 transition-all duration-200 ${open ? "shadow-[0_8px_24px_rgba(0,0,0,0.08)]" : "hover:shadow-[0_6px_16px_rgba(0,0,0,0.05)]"}`}>
-                    <button className="flex w-full items-center justify-between py-4 font-medium hover:no-underline" onClick={() => setOpenExperience(openExperience === item.id ? null : item.id)}>
+                  <div key={item.id} className={`rounded-lg border border-border bg-card px-3 py-2 sm:px-4 transition-all duration-200 ${open ? "shadow-[0_8px_24px_rgba(0,0,0,0.08)]" : "hover:shadow-[0_6px_16px_rgba(0,0,0,0.05)]"}`}>
+                    <button className="flex w-full items-center justify-between py-2 sm:py-4 font-medium hover:no-underline" onClick={() => setOpenExperience(openExperience === item.id ? null : item.id)}>
                       <div className="flex w-full items-center gap-3 text-left">
                         <div className="flex h-8 w-8 shrink-0 items-center justify-center overflow-hidden rounded-md bg-secondary text-sm font-semibold text-foreground">
                           {item.image ? (
@@ -673,12 +673,12 @@ function App() {
         <div id="education">
           <section className="py-8">
             <h2 className="mb-6 text-xl font-semibold text-foreground">Education</h2>
-            <div className="space-y-2">
+            <div className="space-y-1.5 sm:space-y-2">
               {educationItems.map((item) => {
                 const open = openEducation === item.id;
                 return (
-                  <div key={item.id} className={`rounded-lg border border-border bg-card px-4 transition-all duration-200 ${open ? "shadow-[0_8px_24px_rgba(0,0,0,0.08)]" : "hover:shadow-[0_6px_16px_rgba(0,0,0,0.05)]"}`}>
-                    <button className="flex w-full items-center justify-between py-4 font-medium hover:no-underline" onClick={() => setOpenEducation(openEducation === item.id ? null : item.id)}>
+                  <div key={item.id} className={`rounded-lg border border-border bg-card px-3 py-2 sm:px-4 transition-all duration-200 ${open ? "shadow-[0_8px_24px_rgba(0,0,0,0.08)]" : "hover:shadow-[0_6px_16px_rgba(0,0,0,0.05)]"}`}>
+                    <button className="flex w-full items-center justify-between py-2 sm:py-4 font-medium hover:no-underline" onClick={() => setOpenEducation(openEducation === item.id ? null : item.id)}>
                       <div className="flex w-full items-center gap-3 text-left">
                         <div className="flex h-8 w-8 shrink-0 items-center justify-center overflow-hidden rounded-md bg-secondary">
                           <img src={item.image} alt={item.school} className="h-full w-full object-contain" />
@@ -718,22 +718,22 @@ function App() {
         <div id="projects">
           <section className="py-8">
             <h2 className="mb-6 text-xl font-semibold text-foreground">Projects</h2>
-            <div className="space-y-4">
+            <div className="space-y-3 sm:space-y-4">
               {projectItems.map((project) => (
-                <div key={project.id} className="group flex flex-col gap-4 rounded-lg border border-border bg-card p-4 transition-all duration-300 hover:shadow-[0_10px_26px_rgba(0,0,0,0.08)] sm:flex-row">
-                  <div className="flex h-32 w-full shrink-0 items-center justify-center overflow-hidden rounded-lg border border-border bg-secondary sm:w-48">
+                <div key={project.id} className="group flex flex-col gap-3 rounded-lg border border-border bg-card p-3 transition-all duration-300 hover:shadow-[0_10px_26px_rgba(0,0,0,0.08)] sm:gap-4 sm:p-4 md:flex-row">
+                  <div className="flex h-24 w-full shrink-0 items-center justify-center overflow-hidden rounded-lg border border-border bg-secondary sm:h-32 md:w-40">
                     <img src={project.image} alt={project.title} className="h-full w-full object-contain p-2 drop-shadow-sm transition-transform duration-300 group-hover:scale-105" />
                   </div>
-                  <div className="flex-1">
-                    <div className="mb-2 flex items-center justify-between">
-                      <h3 className="font-semibold text-foreground">{project.title}</h3>
-                      <div className="flex gap-2">
+                  <div className="flex-1 min-w-0">
+                    <div className="mb-2 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+                      <h3 className="font-semibold text-foreground text-sm sm:text-base">{project.title}</h3>
+                      <div className="flex gap-2 shrink-0">
                         {project.liveUrl && <a href={project.liveUrl} target="_blank" rel="noreferrer" className="rounded-md p-1.5 transition-colors duration-150 hover:bg-muted/50" title="Live"><IconExternal className="h-4 w-4 text-muted-foreground" /></a>}
                         {project.githubUrl && <a href={project.githubUrl} target="_blank" rel="noreferrer" className="rounded-md p-1.5 transition-colors duration-150 hover:bg-muted/50" title="GitHub"><IconGithub className="h-4 w-4 text-muted-foreground" /></a>}
                       </div>
                     </div>
-                    <p className="mb-3 text-sm text-muted-foreground">{project.description}</p>
-                    <div className="flex flex-wrap gap-1.5">
+                    <p className="mb-2 text-xs sm:text-sm text-muted-foreground line-clamp-2">{project.description}</p>
+                    <div className="flex flex-wrap gap-1">
                       {project.tags.map((tag) => <Badge key={tag}>{tag}</Badge>)}
                     </div>
                   </div>
@@ -758,19 +758,21 @@ function App() {
             </div>
           ) : (
             <div className="space-y-4">
-              {/* Outer row: card (flex-1) + year buttons (outside card, right) */}
-              <div className="flex items-start gap-4">
+              {/* Outer row: card (flex-1) + year buttons (responsive) */}
+              <div className="flex flex-col gap-4 lg:flex-row lg:items-start">
 
                 {/* Graph card — takes all remaining width, no internal scroll */}
-                <div className="min-w-0 flex-1 rounded-2xl border border-border bg-card px-5 pb-4 pt-5">
-                  <ContributionGraph weeks={weeks} year={selectedYear} themeDark={themeDark} />
+                <div className="min-w-0 flex-1 rounded-2xl border border-border bg-card px-3 pb-4 pt-5 sm:px-5">
+                  <div className="overflow-x-auto">
+                    <ContributionGraph weeks={weeks} year={selectedYear} themeDark={themeDark} />
+                  </div>
 
                   {/* Footer: total count + legend */}
-                  <div className="mt-3 flex flex-wrap items-center justify-between gap-2">
+                  <div className="mt-3 flex flex-col gap-3 items-start justify-between sm:flex-row sm:items-center">
                     <span className="text-xs text-muted-foreground">
                       {totalContributions} activities in {selectedYear}
                       {!import.meta.env.VITE_GITHUB_TOKEN && (
-                        <span className="ml-2 opacity-60">(last ~90 days — add VITE_GITHUB_TOKEN for full history)</span>
+                        <span className="ml-2 opacity-60">(last ~90 days)</span>
                       )}
                     </span>
                     <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
@@ -783,13 +785,13 @@ function App() {
                   </div>
                 </div>
 
-                {/* Year buttons — outside the card, stacked on the right */}
-                <div className="flex shrink-0 flex-col gap-2 pt-1">
+                {/* Year buttons — responsive layout */}
+                <div className="flex shrink-0 flex-row gap-2 sm:flex-row lg:flex-col lg:pt-1">
                   {availableYears.map((year) => (
                     <button
                       key={year}
                       onClick={() => setSelectedYear(year)}
-                      className={`rounded-full px-3 py-1.5 text-sm font-medium transition-all duration-150 ${
+                      className={`flex-1 rounded-full px-3 py-1.5 text-sm font-medium transition-all duration-150 sm:flex-none ${
                         selectedYear === year
                           ? "border border-foreground bg-foreground text-background"
                           : "bg-transparent text-foreground hover:bg-muted"
