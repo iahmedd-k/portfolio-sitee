@@ -3,6 +3,7 @@ import carpConnectImage from "./assets/carpconnect.png";
 import flowForgeImage from "./assets/flowforge.png";
 import finPilotImage from "./assets/finpilot-ai.png";
 import airUniversityImage from "./assets/fast-DR1zqs47.jpg";
+import freelanceImage from "./assets/freelnace.png";
 
 export const navItems = ["Home", "About", "Skills", "Experience", "Education", "Projects"];
 
@@ -101,7 +102,7 @@ export const experienceItems = [
     location: "Remote",
     type: "Client Work",
     initials: "FF",
-    image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/freelancer/freelancer-original.svg",
+    image: freelanceImage,
     accent: "from-slate-950 via-slate-800 to-zinc-700",
     points: [
       "Delivered 6 production applications across ecommerce, AI, SaaS, and landing-page use cases.",
