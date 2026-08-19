@@ -283,7 +283,7 @@ function App() {
   const [themeDark, setThemeDark]           = useState(false);
   const [menuOpen, setMenuOpen]             = useState(false);
   const [skillTab, setSkillTab]             = useState(skillGroups[0].id);
-  const [openExperience, setOpenExperience] = useState("freelance");
+  const [openExperience, setOpenExperience] = useState("emumba");
   const [openEducation, setOpenEducation]   = useState("air");
   const [copyState, setCopyState]           = useState(false);
   const [timeString, setTimeString]         = useState("");

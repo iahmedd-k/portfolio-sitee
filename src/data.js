@@ -95,6 +95,24 @@ export const skillGroups = [
 
 export const experienceItems = [
   {
+    id: "emumba",
+    company: "Emumba",
+    role: "AI Developer Intern",
+    period: "Jul 2026 - Sep 4, 2026",
+    location: "Islamabad, Pakistan",
+    type: "Internship",
+    initials: "EM",
+    accent: "from-sky-950 via-cyan-900 to-teal-800",
+    points: [
+      "Designed and built a full backend for a healthcare scheduling platform in FastAPI across four architectural layers.",
+      "Implemented role-based, ownership-scoped CRUD for providers, services, and appointment slots.",
+      "Built durable Temporal workflows, including a saga-pattern appointment-booking flow with automatic compensation on failure.",
+      "Developed an event-driven analytics pipeline with Kafka and Celery, using idempotent consumers and reconciled aggregate reporting.",
+      "Created a retrieval-augmented AI assistant grounded in real service data that refuses medical-advice requests and streams responses over SSE without blocking booking traffic.",
+      "Proved zero double-bookings under 50 concurrent requests with atomic conditional database updates while maintaining at least 80% test coverage and zero real network calls in the test suite.",
+    ],
+  },
+  {
     id: "freelance",
     company: "Freelance Full-Stack Developer",
     role: "Remote",
