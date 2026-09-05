@@ -171,6 +171,11 @@ export const projectItems = [
     tags: ["FastAPI", "PostgreSQL", "Temporal", "Kafka", "Celery", "Redis"],
     mark: "SH",
     accent: "from-emerald-950 via-teal-900 to-cyan-800",
+    details: [
+      "Modular API, service, repository, schema, workflow, worker, and observability layers.",
+      "Temporal booking sagas with atomic slot claims, idempotency protection, billing compensation, and visit state transitions.",
+      "Kafka event analytics, Celery retries, Redis-backed duplicate detection, Prometheus metrics, and PHI-safe assistant flows.",
+    ],
   },
   {
     id: "research-nexus",
@@ -183,6 +188,11 @@ export const projectItems = [
     tags: ["TypeScript", "Next.js", "LangChain", "Pinecone", "OpenAI"],
     mark: "RN",
     accent: "from-slate-950 via-indigo-950 to-cyan-900",
+    details: [
+      "Uploads PDF and DOCX research papers, extracts and chunks text, and stores files securely with Supabase.",
+      "Generates embeddings with Gemini and indexes document chunks in Pinecone for semantic retrieval.",
+      "Provides authenticated document management and a conversational chat API with grounded answers and citations.",
+    ],
   },
   {
     id: "carpconnect",
@@ -195,6 +205,11 @@ export const projectItems = [
     tags: ["Node.js", "Express", "MongoDB", "Redis", "Socket.io", "React"],
     mark: "CC",
     accent: "from-amber-950 via-orange-900 to-rose-900",
+    details: [
+      "Real-time carpooling workflows for ride discovery, matching, and shared trip coordination.",
+      "Uses geospatial data and live room updates to keep drivers and riders synchronized.",
+      "Integrates Redis-backed state and Stripe Connect split-fare reconciliation for shared payments.",
+    ],
   },
   {
     id: "flowforge",
@@ -207,6 +222,11 @@ export const projectItems = [
     tags: ["Node.js", "Express", "MongoDB", "React", "Stripe", "Zod"],
     mark: "FF",
     accent: "from-violet-950 via-fuchsia-900 to-pink-900",
+    details: [
+      "Multi-tenant project management workflows with workspace-level data isolation and role-aware access.",
+      "Combines a React client with a Node.js and Express API backed by MongoDB.",
+      "Includes Google OAuth, Stripe billing, notifications, invitations, and validated request flows.",
+    ],
   },
   {
     id: "finpilot",
@@ -219,6 +239,11 @@ export const projectItems = [
     tags: ["Node.js", "React", "OpenAI", "LangChain", "Pinecone", "Stripe"],
     mark: "FP",
     accent: "from-slate-950 via-stone-900 to-neutral-800",
+    details: [
+      "Tracks transactions, budgets, financial goals, assets, and portfolio data through a Node.js and Express backend.",
+      "Adds merchant categorization, CSV import, dashboard analytics, cash-flow forecasting, and financial-health scoring.",
+      "Provides an AI advisor grounded in user finance context with JWT auth, refresh-token rotation, rate limiting, and MongoDB persistence.",
+    ],
   },
 ];
 

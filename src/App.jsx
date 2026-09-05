@@ -285,6 +285,7 @@ function App() {
   const [skillTab, setSkillTab]             = useState(skillGroups[0].id);
   const [openExperience, setOpenExperience] = useState("emumba");
   const [openEducation, setOpenEducation]   = useState("air");
+  const [openProjects, setOpenProjects]     = useState(() => new Set());
   const [copyState, setCopyState]           = useState(false);
   const [timeString, setTimeString]         = useState("");
   const [traitIndex, setTraitIndex]         = useState(0);
@@ -551,7 +552,7 @@ function App() {
                   <span className="text-sm font-medium">Islamabad, Pakistan</span>
                 </div>
               </div>
-              <p className="mb-4 text-center text-muted-foreground md:text-left">{"22 \u2022 Full Stack Software & Infrastructure Engineer \u2022 MLOps / LLMOps"}</p>
+              <p className="mb-4 text-center text-muted-foreground md:text-left">{"22 \u2022 Backend Software Engineer \u2022 MLOps / LLMOps"}</p>
               <div className="flex flex-wrap items-center justify-center gap-2 md:justify-start">
                 {heroLinks.map((link) => {
                   const cls = "group relative inline-flex h-9 w-9 items-center justify-center rounded-lg transition-colors duration-150 hover:bg-muted/40";
@@ -720,7 +721,17 @@ function App() {
             <h2 className="mb-6 text-xl font-semibold text-foreground">Projects</h2>
             <div className="space-y-3 sm:space-y-4">
               {projectItems.map((project) => (
-                <div key={project.id} className="group flex flex-col gap-3 rounded-lg border border-border bg-card p-3 transition-all duration-300 hover:shadow-[0_10px_26px_rgba(0,0,0,0.08)] sm:gap-4 sm:p-4 md:flex-row">
+                (() => {
+                  const open = openProjects.has(project.id);
+                  const toggleProject = () => {
+                    setOpenProjects((current) => {
+                      const next = new Set(current);
+                      if (next.has(project.id)) next.delete(project.id);
+                      else next.add(project.id);
+                      return next;
+                    });
+                  };
+                  return <div key={project.id} className="group flex flex-col gap-3 rounded-lg border border-border bg-card p-3 transition-all duration-300 hover:shadow-[0_10px_26px_rgba(0,0,0,0.08)] sm:gap-4 sm:p-4 md:flex-row">
                   <div className="flex h-24 w-full shrink-0 items-center justify-center overflow-hidden rounded-lg border border-border bg-secondary sm:h-32 md:w-40">
                     {project.image ? (
                       <img src={project.image} alt={project.title} className="h-full w-full object-contain p-2 drop-shadow-sm transition-transform duration-300 group-hover:scale-105" />
@@ -732,18 +743,28 @@ function App() {
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="mb-2 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-                      <h3 className="font-semibold text-foreground text-sm sm:text-base">{project.title}</h3>
-                      <div className="flex gap-2 shrink-0">
+                      <div>
+                        <h3 className="font-semibold text-foreground text-sm sm:text-base">{project.title}</h3>
+                        <p className="mt-0.5 text-xs text-muted-foreground">{project.subtitle}</p>
+                      </div>
+                      <div className="flex items-center gap-2 shrink-0">
                         {project.liveUrl && <a href={project.liveUrl} target="_blank" rel="noreferrer" className="rounded-md p-1.5 transition-colors duration-150 hover:bg-muted/50" title="Live"><IconExternal className="h-4 w-4 text-muted-foreground" /></a>}
                         {project.githubUrl && <a href={project.githubUrl} target="_blank" rel="noreferrer" className="rounded-md p-1.5 transition-colors duration-150 hover:bg-muted/50" title="GitHub"><IconGithub className="h-4 w-4 text-muted-foreground" /></a>}
+                        {project.details?.length > 0 && <button type="button" onClick={toggleProject} aria-expanded={open} aria-label={`${open ? "Collapse" : "Expand"} ${project.title} details`} title={`${open ? "Collapse" : "Expand"} details`} className="rounded-md p-1.5 transition-colors duration-150 hover:bg-muted/50">
+                          <IconChevronDown className={`h-4 w-4 text-muted-foreground transition-transform duration-200 ${open ? "rotate-180" : ""}`} />
+                        </button>}
                       </div>
                     </div>
-                    <p className="mb-2 text-xs sm:text-sm text-muted-foreground line-clamp-2">{project.description}</p>
+                    <p className={`mb-2 text-xs leading-5 text-muted-foreground sm:text-sm ${open ? "" : "line-clamp-3"}`}>{project.description}</p>
+                    {open && <ul className="mb-3 space-y-1.5 text-xs leading-5 text-muted-foreground sm:text-sm">
+                      {project.details.map((detail) => <li key={detail} className="flex gap-2"><span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-foreground/50" />{detail}</li>)}
+                    </ul>}
                     <div className="flex flex-wrap gap-1">
                       {project.tags.map((tag) => <Badge key={tag}>{tag}</Badge>)}
                     </div>
                   </div>
-                </div>
+                </div>;
+                })()
               ))}
             </div>
           </section>
