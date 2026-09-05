@@ -59,6 +59,20 @@ export const skillGroups = [
     ],
   },
   {
+    id: "backend-systems",
+    title: "Backend Systems",
+    skills: [
+      { name: "Temporal", icon: "https://cdn.simpleicons.org/temporal/000000", invertInDark: true },
+      { name: "Apache Kafka", icon: "https://cdn.simpleicons.org/apachekafka/231F20", invertInDark: true },
+      { name: "Celery", icon: "https://cdn.simpleicons.org/celery/37814A" },
+      { name: "Pytest", icon: "https://cdn.simpleicons.org/pytest/0A9EDC" },
+      { name: "JWT", icon: "https://cdn.simpleicons.org/jsonwebtokens/000000", invertInDark: true },
+      { name: "Prometheus", icon: "https://cdn.simpleicons.org/prometheus/E6522C" },
+      { name: "Server-Sent Events", icon: "https://cdn.simpleicons.org/socketdotio/010101", invertInDark: true },
+      { name: "RBAC", icon: "https://cdn.simpleicons.org/auth0/EB5424" },
+    ],
+  },
+  {
     id: "cloud",
     title: "Cloud & Infrastructure",
     skills: [
@@ -97,19 +111,18 @@ export const experienceItems = [
   {
     id: "emumba",
     company: "Emumba",
-    role: "AI Developer Intern",
+    role: "Backend Developer Intern",
     period: "Jul 2026 - Sep 4, 2026",
     location: "Islamabad, Pakistan",
     type: "Internship",
     initials: "EM",
     accent: "from-sky-950 via-cyan-900 to-teal-800",
     points: [
-      "Designed and built a full backend for a healthcare scheduling platform in FastAPI across four architectural layers.",
-      "Implemented role-based, ownership-scoped CRUD for providers, services, and appointment slots.",
-      "Built durable Temporal workflows, including a saga-pattern appointment-booking flow with automatic compensation on failure.",
-      "Developed an event-driven analytics pipeline with Kafka and Celery, using idempotent consumers and reconciled aggregate reporting.",
-      "Created a retrieval-augmented AI assistant grounded in real service data that refuses medical-advice requests and streams responses over SSE without blocking booking traffic.",
-      "Proved zero double-bookings under 50 concurrent requests with atomic conditional database updates while maintaining at least 80% test coverage and zero real network calls in the test suite.",
+      "Built the SmartHealth healthcare scheduling backend in FastAPI, covering JWT authentication, role-based PHI authorization, and operational CRUD for providers, services, slots, appointments, billing, visits, and waitlists.",
+      "Implemented a durable Temporal booking saga that validates eligibility, atomically reserves slots, runs billing and reminders, confirms appointments, and compensates failed bookings.",
+      "Guaranteed safe concurrent booking with database-authoritative conditional updates and idempotency keys, preventing double bookings and duplicate billing on retries.",
+      "Connected Kafka analytics events with idempotent consumers and Celery retry workers, while preserving audit history, correlation IDs, structured logs, metrics, and health checks.",
+      "Delivered service publishing and semantic search workflows with chunked content, plus a safety-aware AI assistant with PHI redaction, Redis caching, timeout protection, and SSE streaming.",
     ],
   },
   {
