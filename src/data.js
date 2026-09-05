@@ -162,6 +162,17 @@ export const educationItems = [
 
 export const projectItems = [
   {
+    id: "smarthealth",
+    title: "SmartHealth",
+    subtitle: "Healthcare Scheduling Backend",
+    description:
+      "A modular FastAPI backend for clinic operations with role-based access, provider and service management, slot-based booking, appointment lifecycle tracking, and a safety-checked healthcare assistant.",
+    githubUrl: "https://github.com/iahmedd-k/A-FastAPI-backend-for-Healthcare-Scheduling-and-Clinic-Operations",
+    tags: ["FastAPI", "PostgreSQL", "Temporal", "Kafka", "Celery", "Redis"],
+    mark: "SH",
+    accent: "from-emerald-950 via-teal-900 to-cyan-800",
+  },
+  {
     id: "research-nexus",
     title: "Research Nexus",
     subtitle: "AI Research Assistant",

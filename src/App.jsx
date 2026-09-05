@@ -722,7 +722,13 @@ function App() {
               {projectItems.map((project) => (
                 <div key={project.id} className="group flex flex-col gap-3 rounded-lg border border-border bg-card p-3 transition-all duration-300 hover:shadow-[0_10px_26px_rgba(0,0,0,0.08)] sm:gap-4 sm:p-4 md:flex-row">
                   <div className="flex h-24 w-full shrink-0 items-center justify-center overflow-hidden rounded-lg border border-border bg-secondary sm:h-32 md:w-40">
-                    <img src={project.image} alt={project.title} className="h-full w-full object-contain p-2 drop-shadow-sm transition-transform duration-300 group-hover:scale-105" />
+                    {project.image ? (
+                      <img src={project.image} alt={project.title} className="h-full w-full object-contain p-2 drop-shadow-sm transition-transform duration-300 group-hover:scale-105" />
+                    ) : (
+                      <span className={`flex h-full w-full items-center justify-center bg-gradient-to-br ${project.accent || "from-slate-950 via-slate-800 to-zinc-700"} text-2xl font-semibold tracking-[0.18em] text-white transition-transform duration-300 group-hover:scale-105`}>
+                        {project.mark || project.title.slice(0, 2).toUpperCase()}
+                      </span>
+                    )}
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="mb-2 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
