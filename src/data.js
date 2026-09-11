@@ -149,9 +149,8 @@ export const educationItems = [
     id: "air",
     school: "Air University, Islamabad",
     degree: "BS Computer Science",
-    period: "6th Semester ? Expected July 2027",
     location: "Islamabad",
-    meta: "3rd Year",    image: airUniversityImage,    initials: "AU",
+    image: airUniversityImage,    initials: "AU",
     accent: "from-emerald-950 via-teal-900 to-cyan-800",
     points: [
       "Relevant coursework includes Data Structures & Algorithms, OOP, Database Systems, Computer Networks, Operating Systems, and Cloud/DevOps topics.",

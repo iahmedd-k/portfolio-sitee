@@ -689,14 +689,14 @@ function App() {
                             <span className="font-medium text-foreground text-sm sm:text-base">{item.school}</span>
                             <span className="text-muted-foreground text-xs sm:text-sm">{item.degree}</span>
                           </div>
-                          <div className="mt-0.5 text-xs sm:text-sm text-muted-foreground">{item.period}</div>
+                          <div className="mt-0.5 text-xs sm:text-sm text-muted-foreground">{item.period ?? ""}</div>
                         </div>
                       </div>
                       <IconChevronDown className={`h-4 w-4 shrink-0 transition-transform duration-200 ${open ? "rotate-180" : ""}`} />
                     </button>
                     {open && (
                       <div className="pb-4 pt-0 text-sm">
-                        <div className="mb-3 flex gap-2"><Badge>{item.location}</Badge><Badge>{item.meta}</Badge></div>
+                        <div className="mb-3 flex gap-2"><Badge>{item.location}</Badge>{item.meta && <Badge>{item.meta}</Badge>}</div>
                         <ul className="space-y-2">
                           {item.points.map((point) => (
                             <li key={point} className="flex gap-2 text-sm text-muted-foreground">
