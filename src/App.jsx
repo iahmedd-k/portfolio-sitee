@@ -587,9 +587,9 @@ function App() {
           <section className="py-6">
             <h2 className="mb-6 text-xl font-semibold text-foreground">About</h2>
             <div className="max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
-              <p className="mb-4"><span className="text-foreground">Backend &amp; Full-Stack Developer</span> at Air University Islamabad, focused on building scalable, secure, and high-performance products.</p>
-              <p className="mb-4">I've shipped production applications across ecommerce, AI, SaaS, and realtime systems - with hands-on work in <span className="text-foreground">Node.js, React, Next.js, MongoDB, Redis, Stripe, and OpenAI</span>.</p>
-              <p>Outside the terminal, you'll usually find me improving systems, iterating on client work, or exploring product ideas that feel useful in the real world.</p>
+              <p className="mb-4">Backend Developer focused on building scalable, production-grade systems — from distributed systems and backend architectures to AI-powered applications.</p>
+              <p className="mb-4">I've shipped healthcare platforms, document intelligence systems, real-time carpooling apps, SaaS products, and AI assistants, with hands-on experience across <span className="text-foreground">FastAPI, Node.js, TypeScript, React, PostgreSQL, Temporal, Kafka, AWS, CI/CD pipelines, and RAG pipelines</span>.</p>
+              <p>Driven by a passion for solving real-world problems through well-engineered, reliable systems.</p>
             </div>
           </section>
         </div>
