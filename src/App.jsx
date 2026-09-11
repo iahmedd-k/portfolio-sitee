@@ -552,7 +552,7 @@ function App() {
                   <span className="text-sm font-medium">Islamabad, Pakistan</span>
                 </div>
               </div>
-              <p className="mb-4 text-center text-muted-foreground md:text-left">{"22 \u2022 Backend Software Engineer \u2022 MLOps / LLMOps"}</p>
+              <p className="mb-4 text-center text-muted-foreground md:text-left">{"22 \u2022 Backend Software Engineer"}</p>
               <div className="flex flex-wrap items-center justify-center gap-2 md:justify-start">
                 {heroLinks.map((link) => {
                   const cls = "group relative inline-flex h-9 w-9 items-center justify-center rounded-lg transition-colors duration-150 hover:bg-muted/40";

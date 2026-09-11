@@ -1,4 +1,4 @@
-import researchNexusImage from "./assets/reasearchnexus.png";
+
 import carpConnectImage from "./assets/carpconnect.png";
 import flowForgeImage from "./assets/flowforge.png";
 import finPilotImage from "./assets/finpilot-ai.png";
@@ -178,20 +178,19 @@ export const projectItems = [
     ],
   },
   {
-    id: "research-nexus",
-    title: "Research Nexus",
-    subtitle: "AI Research Assistant",
-    image: researchNexusImage,
+    id: "docsense",
+    title: "DocSense",
+    subtitle: "AI Document QA Platform",
     description:
-      "A study-material RAG workspace for students and researchers: upload notes, slides, papers, or study docs, let the pipeline process and index them, then ask grounded questions from the material with streamed answers.",
-    githubUrl: "https://github.com/iahmedd-k/Research-Nexus-AI-RAG_Chatbot",
-    tags: ["TypeScript", "Next.js", "LangChain", "Pinecone", "OpenAI"],
-    mark: "RN",
+      "An enterprise-grade document question-answering platform that lets users upload PDFs and query them through natural language, powered by a hybrid RAG pipeline combining vector search, lexical search, cross-encoder reranking, and LLM-generated answers with verifiable citations.",
+    githubUrl: "https://github.com/iahmedd-k/DocSense",
+    tags: ["Python", "FastAPI", "PostgreSQL", "pgvector", "React", "TypeScript"],
+    mark: "DS",
     accent: "from-slate-950 via-indigo-950 to-cyan-900",
     details: [
-      "Uploads PDF and DOCX research papers, extracts and chunks text, and stores files securely with Supabase.",
-      "Generates embeddings with Gemini and indexes document chunks in Pinecone for semantic retrieval.",
-      "Provides authenticated document management and a conversational chat API with grounded answers and citations.",
+      "Hybrid retrieval pipeline fusing pgvector cosine search with PostgreSQL full-text search, cross-encoder reranking, and a corrective retrieval loop that refines queries when evidence is insufficient.",
+      "Structure-aware PDF ingestion with chunked embeddings (Snowflake Arctic Embed), Cloudinary file storage, and a provider pattern for swapping LLM and embedding models.",
+      "JWT authentication with role-based access control, ownership-scoped data isolation, streaming chat responses, and Docker Compose deployment.",
     ],
   },
   {
